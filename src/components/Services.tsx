@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
-import { FiGlobe, FiCode, FiServer, FiGitBranch } from 'react-icons/fi'
+import { Globe, Code2, Server, GitFork } from 'lucide-react'
 import SectionHeader from './SectionHeader'
 import { SERVICES } from '@/utils/data'
 import type { Service } from '@/types'
 
 const ICON_MAP: Record<string, React.ReactNode> = {
-  FaGlobe: <FiGlobe className="w-6 h-6" />,
-  FaCode: <FiCode className="w-6 h-6" />,
-  FaServer: <FiServer className="w-6 h-6" />,
-  FaSitemap: <FiGitBranch className="w-6 h-6" />,
+  FaGlobe: <Globe className="w-6 h-6" />,
+  FaCode: <Code2 className="w-6 h-6" />,
+  FaServer: <Server className="w-6 h-6" />,
+  FaSitemap: <GitFork className="w-6 h-6" />,
 }
 
 const CARD_GRADIENTS = [
@@ -20,8 +20,11 @@ const CARD_GRADIENTS = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-white dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative overflow-hidden">
+      {/* Background radial soft light */}
+      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-violet-400/5 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           badge="Services"
           title="What I Can"
@@ -49,7 +52,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -6 }}
-      className="group rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/30 transition-all duration-300 flex flex-col"
+      className="group rounded-2xl p-6 liquid-glass liquid-glass-hover shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col border border-white/20 dark:border-white/5"
     >
       {/* Icon */}
       <div
@@ -59,17 +62,17 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       </div>
 
       {/* Title */}
-      <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+      <h3 className="font-extrabold text-lg text-gray-900 dark:text-white mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
         {service.title}
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-1">
-        {service.description}
+      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-1 italic">
+        "{service.description}"
       </p>
 
       {/* Features */}
-      <ul className="space-y-1.5">
+      <ul className="space-y-1.5 border-t border-white/20 dark:border-white/5 pt-4">
         {service.features.map(f => (
           <li key={f} className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
             <span

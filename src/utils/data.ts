@@ -16,7 +16,7 @@ export const EMAIL = 'duongnguyenqn1323@gmail.com'
 export const SKILLS: SkillCategory[] = [
   {
     category: 'Frontend',
-    icon: 'FaReact',
+    icon: 'Atom',
     color: 'from-cyan-500 to-blue-500',
     skills: [
       { name: 'ReactJS', level: 90 },
@@ -29,7 +29,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'Backend',
-    icon: 'FaNodeJs', // Will use Java icon in component or stick to generic
+    icon: 'Cpu', // Will use Java icon in component or stick to generic
     color: 'from-orange-500 to-red-600',
     skills: [
       { name: 'Java', level: 90 },
@@ -41,7 +41,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'Architecture',
-    icon: 'FaSitemap',
+    icon: 'Workflow',
     color: 'from-indigo-500 to-purple-600',
     skills: [
       { name: 'Microservices', level: 85 },
@@ -51,7 +51,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'DevOps',
-    icon: 'FaDocker',
+    icon: 'Boxes',
     color: 'from-blue-600 to-cyan-600',
     skills: [
       { name: 'Docker', level: 85 },
@@ -61,7 +61,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'Database',
-    icon: 'FaDatabase',
+    icon: 'Database',
     color: 'from-emerald-500 to-teal-600',
     skills: [
       { name: 'PostgreSQL', level: 88 },
@@ -72,7 +72,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'Realtime & Messaging',
-    icon: 'FaNetworkWired',
+    icon: 'Zap',
     color: 'from-amber-500 to-orange-600',
     skills: [
       { name: 'WebSocket / Socket.IO', level: 88 },
@@ -82,7 +82,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'Monitoring',
-    icon: 'FaChartLine',
+    icon: 'TrendingUp',
     color: 'from-pink-500 to-rose-600',
     skills: [
       { name: 'Prometheus', level: 78 },
@@ -91,7 +91,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     category: 'AI / Data',
-    icon: 'FaRobot',
+    icon: 'Brain',
     color: 'from-violet-500 to-fuchsia-600',
     skills: [
       { name: 'Gemini AI / AWS Bedrock', level: 85 },
@@ -103,6 +103,24 @@ export const SKILLS: SkillCategory[] = [
 ]
 
 export const PROJECTS: Project[] = [
+  {
+    id: '5',
+    title: 'D-Sport Center',
+    description:
+      'Enterprise-grade online sports court booking and management system. Integrates real-time court scheduling, secure PayPal payments, automated email tickets with QR check-in codes, interactive Gemini AI assistance, and real-time WebSocket dashboard alerts.',
+    features: [
+      'Real-time court slots selector & booking system',
+      'PayPal SDK Smart Checkout Integration',
+      'QR Code check-in scanner with staff diagnostics',
+      'Gemini AI (gemini-2.0-flash) Smart Booking Assistant',
+      'Real-time notifications via SockJS & STOMP',
+      'Multi-user support with Spring Security & OAuth2',
+    ],
+    techStack: ['ReactJS', 'TailwindCSS', 'Spring Boot', 'PostgreSQL', 'Liquibase', 'WebSocket', 'PayPal SDK', 'Gemini AI', 'Docker', 'TanStack Query', 'Redux Toolkit'],
+    githubUrl: 'https://github.com/DuongGB/sports-center',
+    liveUrl: 'https://sports-center.demo.example.com',
+    featured: true,
+  },
   {
     id: '1',
     title: 'Tech E-commerce Platform',
@@ -195,7 +213,7 @@ export const SERVICES: Service[] = [
     title: 'Web Development',
     description:
       'Building performant and scalable web applications using React and Spring Boot.',
-    icon: 'FaGlobe',
+    icon: 'Globe',
     features: ['ReactJS / NextJS', 'Spring Boot', 'Responsive Design', 'JWT Auth'],
   },
   {
@@ -203,7 +221,7 @@ export const SERVICES: Service[] = [
     title: 'Mobile App Development',
     description:
       'Creating cross-platform mobile applications with React Native for seamless user experiences.',
-    icon: 'FaMobile',
+    icon: 'Smartphone',
     features: ['React Native', 'Real-time features', 'Native modules integration', 'Push notifications'],
   },
   {
@@ -211,7 +229,7 @@ export const SERVICES: Service[] = [
     title: 'Microservices Architecture',
     description:
       'Designing and implementing independent services with event-driven communication.',
-    icon: 'FaServer',
+    icon: 'Server',
     features: ['Kafka / RabbitMQ', 'API Gateway', 'Docker / Containerization', 'Distributed caching'],
   },
   {
@@ -219,7 +237,7 @@ export const SERVICES: Service[] = [
     title: 'AI Integration',
     description:
       'Integrating machine learning models and AI services into production systems.',
-    icon: 'FaRobot',
+    icon: 'Brain',
     features: ['Recommendation Systems', 'Revenue Forecasting', 'Gemini AI / Bedrock', 'FastAPI'],
   },
 ]

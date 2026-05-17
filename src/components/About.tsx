@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiBriefcase, FiCode, FiAward, FiTarget } from 'react-icons/fi'
+import { Briefcase, Code2, Award, Target } from 'lucide-react'
 import SectionHeader from './SectionHeader'
 
 const STATS = [
-  { icon: FiBriefcase, value: '1+', label: 'Years Experience', color: 'text-violet-600 dark:text-violet-400' },
-  { icon: FiCode, value: '4+', label: 'Projects Delivered', color: 'text-indigo-600 dark:text-indigo-400' },
-  { icon: FiAward, value: '10+', label: 'Happy Clients', color: 'text-cyan-600 dark:text-cyan-400' },
-  { icon: FiTarget, value: '99%', label: 'Client Satisfaction', color: 'text-emerald-600 dark:text-emerald-400' },
+  { icon: Briefcase, value: '1+', label: 'Years Experience', color: 'text-violet-600 dark:text-violet-400' },
+  { icon: Code2, value: '5+', label: 'Projects Delivered', color: 'text-indigo-600 dark:text-indigo-400' },
+  { icon: Award, value: '10+', label: 'Happy Clients', color: 'text-cyan-600 dark:text-cyan-400' },
+  { icon: Target, value: '99%', label: 'Client Satisfaction', color: 'text-emerald-600 dark:text-emerald-400' },
 ]
 
 const STRENGTHS = [
@@ -23,8 +23,11 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative">
+      {/* Dynamic light blob in background */}
+      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-violet-400/5 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           badge="About Me"
           title="Building the Future,"
@@ -54,7 +57,7 @@ export default function About() {
             </div>
 
             {/* Education */}
-            <div className="rounded-2xl border border-gray-100 dark:border-gray-800 p-5 bg-gray-50 dark:bg-gray-900/50">
+            <div className="rounded-2xl p-5 liquid-glass-light border border-white/20 dark:border-white/5">
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                 <span className="text-lg">🎓</span> Education
               </h3>
@@ -74,7 +77,7 @@ export default function About() {
             </div>
 
             {/* Career Goal */}
-            <div className="rounded-2xl border border-violet-100 dark:border-violet-900/30 p-5 bg-violet-50/50 dark:bg-violet-900/10">
+            <div className="rounded-2xl p-5 liquid-glass border border-violet-200/50 dark:border-violet-800/40 shadow-lg shadow-violet-500/5">
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
                 <span className="text-lg">🎯</span> Career Goal
               </h3>
@@ -99,7 +102,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="rounded-2xl border border-gray-100 dark:border-gray-800 p-5 bg-white dark:bg-gray-900 hover:shadow-lg transition-shadow group"
+                  className="rounded-2xl p-5 liquid-glass liquid-glass-hover group shadow-md shadow-black/5"
                 >
                   <stat.icon className={`w-6 h-6 ${stat.color} mb-3 group-hover:scale-110 transition-transform`} />
                   <p className={`text-3xl font-black ${stat.color}`}>{stat.value}</p>
@@ -115,7 +118,7 @@ export default function About() {
                 {[
                   { title: 'Microservices', emoji: '🏗️', desc: 'Designing independent scalable services' },
                   { title: 'Backend Dev', emoji: '⚙️', desc: 'Secure & efficient Spring Boot APIs' },
-                  { title: 'Real-time Systems', emoji: '󱐋', desc: 'Sockets, Kafka & Event-driven' },
+                  { title: 'Real-time Systems', emoji: '⚡', desc: 'Sockets, Kafka & Event-driven' },
                   { title: 'Problem Solving', emoji: '🧩', desc: 'Analytical approach to complexity' },
                 ].map((s, i) => (
                   <motion.div
@@ -123,7 +126,7 @@ export default function About() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                    className="rounded-xl border border-gray-100 dark:border-gray-800 p-4 bg-white dark:bg-gray-900 hover:border-violet-200 dark:hover:border-violet-800 hover:shadow-sm transition-all"
+                    className="rounded-xl p-4 liquid-glass liquid-glass-hover shadow-sm hover:shadow-md"
                   >
                     <span className="text-2xl">{s.emoji}</span>
                     <p className="font-semibold text-sm text-gray-900 dark:text-white mt-2">{s.title}</p>
