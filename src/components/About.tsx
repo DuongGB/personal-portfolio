@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, Code2, Award, Target } from "lucide-react";
+import { Briefcase, Code2, Award, Target, Brain, Handshake, Sparkles, Zap, GraduationCap, Building2, Settings, Puzzle } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const STATS = [
@@ -34,22 +34,22 @@ const STATS = [
 const STRENGTHS = [
   {
     title: "Problem Solver",
-    emoji: "🧠",
+    icon: Brain,
     desc: "Turn complex challenges into elegant solutions",
   },
   {
     title: "Team Player",
-    emoji: "🤝",
+    icon: Handshake,
     desc: "Collaborate and lift team performance",
   },
   {
     title: "Clean Code",
-    emoji: "✨",
+    icon: Sparkles,
     desc: "Readable, maintainable, and scalable code",
   },
   {
     title: "Fast Learner",
-    emoji: "⚡",
+    icon: Zap,
     desc: "Adapt quickly to new technologies",
   },
 ];
@@ -123,7 +123,7 @@ export default function About() {
             {/* Education */}
             <div className="rounded-2xl p-5 liquid-glass-light border border-white/20 dark:border-white/5">
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                <span className="text-lg">🎓</span> Education
+                <GraduationCap className="w-5 h-5 text-violet-600 dark:text-violet-400" /> Education
               </h3>
               <div className="space-y-2">
                 <div>
@@ -143,7 +143,7 @@ export default function About() {
             {/* Career Goal */}
             <div className="rounded-2xl p-5 liquid-glass border border-violet-200/50 dark:border-violet-800/40 shadow-lg shadow-violet-500/5">
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                <span className="text-lg">🎯</span> Career Goal
+                <Target className="w-5 h-5 text-violet-600 dark:text-violet-400" /> Career Goal
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Seeking a Fresher / Junior Software Engineer position to
@@ -192,22 +192,22 @@ export default function About() {
                 {[
                   {
                     title: "Microservices",
-                    emoji: "🏗️",
+                    icon: Building2,
                     desc: "Designing independent scalable services",
                   },
                   {
                     title: "Backend Dev",
-                    emoji: "⚙️",
+                    icon: Settings,
                     desc: "Secure & efficient Spring Boot APIs",
                   },
                   {
                     title: "Real-time Systems",
-                    emoji: "⚡",
+                    icon: Zap,
                     desc: "Sockets, Kafka & Event-driven",
                   },
                   {
                     title: "Problem Solving",
-                    emoji: "🧩",
+                    icon: Puzzle,
                     desc: "Analytical approach to complexity",
                   },
                 ].map((s, i) => (
@@ -218,7 +218,7 @@ export default function About() {
                     transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
                     className="rounded-xl p-4 liquid-glass liquid-glass-hover shadow-sm hover:shadow-md"
                   >
-                    <span className="text-2xl">{s.emoji}</span>
+                    <s.icon className="w-6 h-6 text-violet-600 dark:text-violet-400" />
                     <p className="font-semibold text-sm text-gray-900 dark:text-white mt-2">
                       {s.title}
                     </p>

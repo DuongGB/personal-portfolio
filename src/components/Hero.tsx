@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-scroll'
-import { Mail, ArrowDown, Download } from 'lucide-react'
+import { Mail, ArrowDown, Download, GraduationCap, Rocket } from 'lucide-react'
 import { Github, Linkedin } from './icons/CustomSocials'
 import avatar from '@/assets/avt.jpg'
 import { CV_URL, EMAIL } from '@/utils/data'
@@ -89,7 +89,7 @@ function ProfileAvatar() {
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute -top-2 -right-4 liquid-glass rounded-xl px-3 py-1.5 shadow-lg border flex items-center gap-2"
       >
-        <span className="text-xl">🎓</span>
+        <GraduationCap className="w-5 h-5 text-violet-600 dark:text-violet-400" />
         <div>
           <p className="text-xs font-bold text-gray-900 dark:text-white whitespace-nowrap">Graduate</p>
           <p className="text-xs text-gray-500 dark:text-gray-400">Software Engineer</p>
@@ -102,7 +102,7 @@ function ProfileAvatar() {
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
         className="absolute -bottom-2 -left-4 liquid-glass rounded-xl px-3 py-1.5 shadow-lg border flex items-center gap-2"
       >
-        <span className="text-xl">🚀</span>
+        <Rocket className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         <div>
           <p className="text-xs font-bold text-gray-900 dark:text-white">Active</p>
           <p className="text-xs text-gray-500 dark:text-gray-400">Learning</p>

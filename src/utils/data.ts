@@ -33,6 +33,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "Bootstrap", level: 90 },
       { name: "TypeScript", level: 80 },
       { name: "JQuery", level: 95 },
+      { name: "Shadcn UI", level: 85 },
     ],
   },
   {
@@ -43,8 +44,6 @@ export const SKILLS: SkillCategory[] = [
       { name: "Java", level: 90 },
       { name: "Spring Boot", level: 92 },
       { name: "REST API", level: 95 },
-      { name: "JWT", level: 90 },
-      { name: "RBAC", level: 88 },
     ],
   },
   {
@@ -58,6 +57,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "GitHub/GitLab", level: 95 },
       { name: "Postman", level: 90 },
       { name: "Jira", level: 90 },
+      { name: "IntelliJ IDEA", level: 95 },
     ],
   },
   {
@@ -67,7 +67,10 @@ export const SKILLS: SkillCategory[] = [
     skills: [
       { name: "Docker", level: 85 },
       { name: "AWS (EC2, S3, Cognito)", level: 80 },
-      { name: "CI/CD", level: 75 },
+      { name: "Jenkins", level: 85 },
+      { name: "Nginx", level: 90 },
+      { name: "Render", level: 85 },
+      { name: "Vercel", level: 80 },
     ],
   },
   {
