@@ -1,9 +1,18 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Atom, Cpu, Workflow, Boxes, Database, Zap, TrendingUp, Brain } from 'lucide-react'
-import SectionHeader from './SectionHeader'
-import { SKILLS } from '@/utils/data'
-import type { SkillCategory } from '@/types'
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  Atom,
+  Cpu,
+  Workflow,
+  Boxes,
+  Database,
+  Zap,
+  TrendingUp,
+  Brain,
+} from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import { SKILLS } from "@/utils/data";
+import type { SkillCategory } from "@/types";
 
 const ICONS: Record<string, React.ReactNode> = {
   Atom: <Atom className="w-5 h-5" />,
@@ -14,14 +23,17 @@ const ICONS: Record<string, React.ReactNode> = {
   Zap: <Zap className="w-5 h-5" />,
   TrendingUp: <TrendingUp className="w-5 h-5" />,
   Brain: <Brain className="w-5 h-5" />,
-}
+};
 
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 bg-white/30 dark:bg-slate-950/15 backdrop-blur-sm relative">
+    <section
+      id="skills"
+      className="bg-white/30 dark:bg-slate-950/15 backdrop-blur-sm relative"
+    >
       {/* Background radial soft light */}
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 dark:bg-indigo-700/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -46,7 +58,7 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function SkillCard({
@@ -55,10 +67,10 @@ function SkillCard({
   isInView,
   icon,
 }: {
-  category: SkillCategory
-  catIndex: number
-  isInView: boolean
-  icon: React.ReactNode
+  category: SkillCategory;
+  catIndex: number;
+  isInView: boolean;
+  icon: React.ReactNode;
 }) {
   return (
     <motion.div
@@ -75,7 +87,9 @@ function SkillCard({
           >
             {icon}
           </div>
-          <h3 className="font-bold text-lg text-gray-900 dark:text-white">{category.category}</h3>
+          <h3 className="font-bold text-lg text-gray-900 dark:text-white">
+            {category.category}
+          </h3>
         </div>
 
         {/* Skills */}
@@ -85,7 +99,10 @@ function SkillCard({
               key={skill.name}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.3, delay: catIndex * 0.1 + skillIndex * 0.05 }}
+              transition={{
+                duration: 0.3,
+                delay: catIndex * 0.1 + skillIndex * 0.05,
+              }}
               className="px-3 py-1.5 rounded-lg bg-white/50 dark:bg-white/5 text-gray-700 dark:text-gray-300 text-sm font-medium border border-gray-100 dark:border-white/5 hover:border-violet-500/30 hover:bg-white/80 dark:hover:bg-white/10 transition-all cursor-default shadow-sm hover:shadow-md"
             >
               {skill.name}
@@ -94,5 +111,5 @@ function SkillCard({
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

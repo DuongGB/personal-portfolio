@@ -1,29 +1,68 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Briefcase, Code2, Award, Target } from 'lucide-react'
-import SectionHeader from './SectionHeader'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Briefcase, Code2, Award, Target } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const STATS = [
-  { icon: Briefcase, value: '1+', label: 'Years Experience', color: 'text-violet-600 dark:text-violet-400' },
-  { icon: Code2, value: '5+', label: 'Projects Delivered', color: 'text-indigo-600 dark:text-indigo-400' },
-  { icon: Award, value: '10+', label: 'Happy Clients', color: 'text-cyan-600 dark:text-cyan-400' },
-  { icon: Target, value: '99%', label: 'Client Satisfaction', color: 'text-emerald-600 dark:text-emerald-400' },
-]
+  {
+    icon: Briefcase,
+    value: "1+",
+    label: "Years Experience",
+    color: "text-violet-600 dark:text-violet-400",
+  },
+  {
+    icon: Code2,
+    value: "5+",
+    label: "Projects Delivered",
+    color: "text-indigo-600 dark:text-indigo-400",
+  },
+  {
+    icon: Award,
+    value: "10+",
+    label: "Happy Clients",
+    color: "text-cyan-600 dark:text-cyan-400",
+  },
+  {
+    icon: Target,
+    value: "99%",
+    label: "Client Satisfaction",
+    color: "text-emerald-600 dark:text-emerald-400",
+  },
+];
 
 const STRENGTHS = [
-  { title: 'Problem Solver', emoji: '🧠', desc: 'Turn complex challenges into elegant solutions' },
-  { title: 'Team Player', emoji: '🤝', desc: 'Collaborate and lift team performance' },
-  { title: 'Clean Code', emoji: '✨', desc: 'Readable, maintainable, and scalable code' },
-  { title: 'Fast Learner', emoji: '⚡', desc: 'Adapt quickly to new technologies' },
-]
+  {
+    title: "Problem Solver",
+    emoji: "🧠",
+    desc: "Turn complex challenges into elegant solutions",
+  },
+  {
+    title: "Team Player",
+    emoji: "🤝",
+    desc: "Collaborate and lift team performance",
+  },
+  {
+    title: "Clean Code",
+    emoji: "✨",
+    desc: "Readable, maintainable, and scalable code",
+  },
+  {
+    title: "Fast Learner",
+    emoji: "⚡",
+    desc: "Adapt quickly to new technologies",
+  },
+];
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative">
+    <section
+      id="about"
+      className="bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative"
+    >
       {/* Dynamic light blob in background */}
       <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-violet-400/5 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -45,14 +84,39 @@ export default function About() {
           >
             <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
-                Hi! I'm <span className="font-semibold text-gray-900 dark:text-white">Duong Nguyen</span>, a
-                recent <span className="text-violet-600 dark:text-violet-400 font-semibold">Software Engineering graduate</span> with hands-on experience building scalable web applications.
+                Hi! I'm{" "}
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  Duong Nguyen
+                </span>
+                , a recent{" "}
+                <span className="text-violet-600 dark:text-violet-400 font-semibold">
+                  Software Engineering graduate
+                </span>{" "}
+                with hands-on experience building scalable web applications.
               </p>
               <p>
-                I specialize in building production-ready systems using <span className="text-violet-600 dark:text-violet-400 font-semibold">ReactJS</span>, <span className="text-indigo-600 dark:text-indigo-400 font-semibold">Spring Boot</span>, and <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Microservices</span>. I have a strong foundation in real-time systems, e-commerce platforms, and distributed architectures.
+                I specialize in building production-ready systems using{" "}
+                <span className="text-violet-600 dark:text-violet-400 font-semibold">
+                  ReactJS
+                </span>
+                ,{" "}
+                <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
+                  Spring Boot
+                </span>
+                , and{" "}
+                <span className="text-cyan-600 dark:text-cyan-400 font-semibold">
+                  Microservices
+                </span>
+                . I have a strong foundation in real-time systems, e-commerce
+                platforms, and distributed architectures.
               </p>
               <p>
-                Passionate about leveraging <span className="text-emerald-600 dark:text-emerald-400 font-semibold">AI integrations</span> and modern DevOps practices to deliver high-quality software that solves real-world problems.
+                Passionate about leveraging{" "}
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                  AI integrations
+                </span>{" "}
+                and modern DevOps practices to deliver high-quality software
+                that solves real-world problems.
               </p>
             </div>
 
@@ -82,7 +146,9 @@ export default function About() {
                 <span className="text-lg">🎯</span> Career Goal
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Seeking a Fresher / Junior Software Engineer position to contribute to impactful software systems and bring value through modern technical solutions.
+                Seeking a Fresher / Junior Software Engineer position to
+                contribute to impactful software systems and bring value through
+                modern technical solutions.
               </p>
             </div>
           </motion.div>
@@ -104,22 +170,46 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                   className="rounded-2xl p-5 liquid-glass liquid-glass-hover group shadow-md shadow-black/5"
                 >
-                  <stat.icon className={`w-6 h-6 ${stat.color} mb-3 group-hover:scale-110 transition-transform`} />
-                  <p className={`text-3xl font-black ${stat.color}`}>{stat.value}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{stat.label}</p>
+                  <stat.icon
+                    className={`w-6 h-6 ${stat.color} mb-3 group-hover:scale-110 transition-transform`}
+                  />
+                  <p className={`text-3xl font-black ${stat.color}`}>
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </div>
 
             {/* Personal Strengths */}
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Personal Strengths</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+                Personal Strengths
+              </h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { title: 'Microservices', emoji: '🏗️', desc: 'Designing independent scalable services' },
-                  { title: 'Backend Dev', emoji: '⚙️', desc: 'Secure & efficient Spring Boot APIs' },
-                  { title: 'Real-time Systems', emoji: '⚡', desc: 'Sockets, Kafka & Event-driven' },
-                  { title: 'Problem Solving', emoji: '🧩', desc: 'Analytical approach to complexity' },
+                  {
+                    title: "Microservices",
+                    emoji: "🏗️",
+                    desc: "Designing independent scalable services",
+                  },
+                  {
+                    title: "Backend Dev",
+                    emoji: "⚙️",
+                    desc: "Secure & efficient Spring Boot APIs",
+                  },
+                  {
+                    title: "Real-time Systems",
+                    emoji: "⚡",
+                    desc: "Sockets, Kafka & Event-driven",
+                  },
+                  {
+                    title: "Problem Solving",
+                    emoji: "🧩",
+                    desc: "Analytical approach to complexity",
+                  },
                 ].map((s, i) => (
                   <motion.div
                     key={s.title}
@@ -129,8 +219,12 @@ export default function About() {
                     className="rounded-xl p-4 liquid-glass liquid-glass-hover shadow-sm hover:shadow-md"
                   >
                     <span className="text-2xl">{s.emoji}</span>
-                    <p className="font-semibold text-sm text-gray-900 dark:text-white mt-2">{s.title}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{s.desc}</p>
+                    <p className="font-semibold text-sm text-gray-900 dark:text-white mt-2">
+                      {s.title}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      {s.desc}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -139,5 +233,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon, Menu, X, Download } from 'lucide-react'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
@@ -38,7 +38,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="home" smooth duration={600} className="cursor-pointer group">
+          <a href="#home" className="cursor-pointer group">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform">
                 DN
@@ -47,18 +47,14 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                 Duong<span className="text-violet-500">Nguyen</span>
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(link => (
-              <Link
+              <a
                 key={link.target}
-                to={link.target}
-                smooth
-                duration={600}
-                spy
-                offset={-70}
+                href={'#' + link.target}
                 className={cn(
                   'px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-200',
                   activeSection === link.target
@@ -67,7 +63,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                 )}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -131,13 +127,9 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
           >
             <div className="px-4 py-3 space-y-1">
               {NAV_LINKS.map(link => (
-                <Link
+                <a
                   key={link.target}
-                  to={link.target}
-                  smooth
-                  duration={600}
-                  spy
-                  offset={-70}
+                  href={'#' + link.target}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     'block px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-all',
@@ -147,7 +139,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                   )}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
               <a
                 href={CV_URL}
