@@ -134,6 +134,7 @@ export const PROJECTS: Project[] = [
     techStack: [
       "ReactJS",
       "TailwindCSS",
+      "Shadcn/ui",
       "Spring Boot",
       "PostgreSQL",
       "Liquibase",
@@ -145,7 +146,7 @@ export const PROJECTS: Project[] = [
       "Redux Toolkit",
     ],
     githubUrl: "https://github.com/DuongGB/sports-center",
-    liveUrl: "https://sports-center.demo.example.com",
+    liveUrl: "",
     featured: true,
   },
   {
@@ -161,6 +162,7 @@ export const PROJECTS: Project[] = [
     ],
     techStack: [
       "ReactJS",
+      "jquery",
       "Spring Boot",
       "MariaDB",
       "JWT",
@@ -168,8 +170,8 @@ export const PROJECTS: Project[] = [
       "Docker",
       "Gemini AI",
     ],
-    githubUrl: "https://github.com/DuongGB",
-    liveUrl: "https://demo.example.com",
+    githubUrl: "https://github.com/tienminhtran/Project_Architectural_Software",
+    liveUrl: "",
     featured: true,
   },
   {
@@ -184,6 +186,7 @@ export const PROJECTS: Project[] = [
       "Image uploads with Cloudinary",
     ],
     techStack: [
+      "Spring Boot",
       "ReactJS",
       "React Native",
       "MongoDB",
@@ -193,15 +196,15 @@ export const PROJECTS: Project[] = [
       "AWS SNS",
       "Cloudinary",
     ],
-    githubUrl: "https://github.com/DuongGB",
-    liveUrl: "https://demo.example.com",
+    githubUrl: "",
+    liveUrl: "",
     featured: true,
   },
   {
     id: "3",
     title: "AI-Enhanced E-commerce",
     description:
-      "Full-stack system with AI-powered product recommendation and revenue prediction using machine learning models.",
+      "Full-stack system with AI-powered product recommendation and revenue prediction using machine learning models with 2 language EN/VI.",
     features: [
       "AI Recommendation System",
       "Revenue Forecasting (Prophet)",
@@ -217,14 +220,17 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
       "Docker",
       "AWS",
+      "i18n",
+      "jquery",
+      "Gemini AI"
     ],
-    githubUrl: "https://github.com/DuongGB",
-    liveUrl: "https://demo.example.com",
+    githubUrl: "https://github.com/DuongGB/FE_DVFashion",
+    liveUrl: "",
     featured: true,
   },
   {
     id: "4",
-    title: "Laboratory Info System",
+    title: "Lab Info Management System (LIMS)",
     description:
       "Enterprise-grade microservices system developed during internship, supporting patient management, payment processing, and real-time notifications.",
     features: [
@@ -242,9 +248,14 @@ export const PROJECTS: Project[] = [
       "Prometheus",
       "Grafana",
       "Socket.IO",
+      "PostgreSQL",
+      "MongoDB",
+      "Next.js",
+      "Shadcn/ui",
+      "AWS Bedrock"
     ],
-    githubUrl: "https://github.com",
-    liveUrl: "https://demo.example.com",
+    githubUrl: "",
+    liveUrl: "",
     featured: true,
   },
 ];
@@ -272,6 +283,14 @@ export const EXPERIENCES: Experience[] = [
       "Redis",
       "Prometheus",
       "Grafana",
+      "Docker",
+      "Slack",
+      "Alert Manager",
+      "Next.js",
+      "Shadcn/ui",
+      "PostgreSQL",
+      "MongoDB",
+      "AWS Bedrock"
     ],
   },
 ];
