@@ -1,43 +1,33 @@
-import { motion } from "framer-motion";
-import { Globe, Code2, Server, GitFork } from "lucide-react";
+import { Brain, Check, Code2, Globe, Server, Smartphone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
 import { SERVICES } from "@/utils/data";
 import type { Service } from "@/types";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
-  FaGlobe: <Globe className="w-6 h-6" />,
-  FaCode: <Code2 className="w-6 h-6" />,
-  FaServer: <Server className="w-6 h-6" />,
-  FaSitemap: <GitFork className="w-6 h-6" />,
+  Globe: <Globe className="h-6 w-6" />,
+  Code2: <Code2 className="h-6 w-6" />,
+  Server: <Server className="h-6 w-6" />,
+  Smartphone: <Smartphone className="h-6 w-6" />,
+  Brain: <Brain className="h-6 w-6" />,
 };
 
-const CARD_GRADIENTS = [
-  "from-violet-500 to-indigo-600",
-  "from-blue-500 to-cyan-500",
-  "from-emerald-500 to-teal-500",
-  "from-orange-500 to-amber-500",
-];
-
 export default function ServicesSection() {
-  return (
-    <section
-      id="services"
-      className="bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative overflow-hidden"
-    >
-      {/* Background radial soft light */}
-      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-violet-400/5 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+  const { t } = useTranslation();
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  return (
+    <section id="services" className="border-b border-zinc-200 bg-[#f7f8f6] py-24 dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Services"
-          title="What I Can"
-          titleAccent="Do for You"
-          description="From a simple landing page to complex distributed systems — I've got you covered."
+          badge={t("services.badge")}
+          title={t("services.title")}
+          titleAccent={t("services.titleAccent")}
+          description={t("services.description")}
         />
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_0.9fr_1.1fr]">
+          {SERVICES.map((service) => (
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </div>
@@ -45,49 +35,26 @@ export default function ServicesSection() {
   );
 }
 
-function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length];
-
+function ServiceCard({ service }: { service: Service }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -6 }}
-      className="group rounded-2xl p-6 liquid-glass liquid-glass-hover shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col border border-white/20 dark:border-white/5"
-    >
-      {/* Icon */}
-      <div
-        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300`}
-      >
-        {ICON_MAP[service.icon]}
+    <article className="flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-teal-700/30 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-teal-300/30">
+      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
+        {ICON_MAP[service.icon] ?? <Code2 className="h-6 w-6" />}
       </div>
-
-      {/* Title */}
-      <h3 className="font-extrabold text-lg text-gray-900 dark:text-white mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+      <h3 className="text-xl font-black tracking-tight text-zinc-950 dark:text-white">
         {service.title}
       </h3>
-
-      {/* Description */}
-      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-1 italic">
-        "{service.description}"
+      <p className="mt-3 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+        {service.description}
       </p>
-
-      {/* Features */}
-      <ul className="space-y-1.5 border-t border-white/20 dark:border-white/5 pt-4">
-        {service.features.map((f) => (
-          <li
-            key={f}
-            className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
-          >
-            <span
-              className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${gradient} flex-shrink-0`}
-            />
-            {f}
+      <ul className="mt-6 space-y-3 border-t border-zinc-200 pt-5 dark:border-zinc-800">
+        {service.features.map((feature) => (
+          <li key={feature} className="flex gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-700 dark:text-teal-300" />
+            {feature}
           </li>
         ))}
       </ul>
-    </motion.div>
+    </article>
   );
 }

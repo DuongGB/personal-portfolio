@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "experience": "Kinh nghiệm",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "greeting": "Xin chào, tôi là",
+    "name": "Dương Nguyễn",
+    "title": "Full Stack Developer",
+    "subtitle": "Xây dựng các giải pháp sáng tạo với React, Spring Boot & Cloud Technologies",
+    "cta": "Xem công việc của tôi",
+    "download": "Tải CV"
+  },
+  "about": {
+    "badge": "Về Tôi",
+    "title": "Xây dựng Tương lai,",
+    "titleAccent": "Từng Commit một",
+    "description": "Fullstack Engineer đam mê với tập trung vào kiến trúc có khả năng mở rộng và trải nghiệm người dùng tuyệt vời.",
+    "stats": {
+      "projects": "Dự án hoàn thành",
+      "experience": "Năm kinh nghiệm",
+      "technologies": "Công nghệ nắm vững"
+    },
+    "strengths": {
+      "architecture": "Kiến trúc hệ thống",
+      "architectureDesc": "Chuyên gia trong thiết kế Microservices, hệ thống event-driven và kiến trúc cloud có khả năng mở rộng.",
+      "performance": "Tối ưu hóa hiệu suất",
+      "performanceDesc": "Chuyên môn trong chiến lược caching, tối ưu hóa cơ sở dữ liệu và các pattern code hiệu quả.",
+      "realtime": "Hệ thống Real-time",
+      "realtimeDesc": "Kinh nghiệm với WebSocket, Socket.IO, Kafka để xây dựng các ứng dụng phản hồi nhanh.",
+      "ai": "Tích hợp AI",
+      "aiDesc": "Thành thạo trong tích hợp các dịch vụ AI (Gemini AI, AWS Bedrock) vào các hệ thống production."
+    }
+  },
+  "skills": {
+    "badge": "Kỹ năng",
+    "title": "Công cụ tôi",
+    "titleAccent": "sử dụng",
+    "description": "Một bộ sưu tập các công nghệ và công cụ tôi sử dụng để xây dựng các ứng dụng có khả năng mở rộng và hiệu suất cao."
+  },
+  "projects": {
+    "badge": "Dự án",
+    "title": "Những gì tôi đã",
+    "titleAccent": "xây dựng",
+    "description": "Một bộ sưu tập các ứng dụng thực tế mà tôi đã thiết kế và phát triển từ đầu.",
+    "featured": "Nổi bật",
+    "keyFeatures": "Tính năng chính",
+    "technologies": "Công nghệ",
+    "sourceCode": "Mã nguồn",
+    "liveDemo": "Demo trực tiếp"
+  },
+  "experience": {
+    "badge": "Kinh nghiệm",
+    "title": "Hành trình",
+    "titleAccent": "chuyên nghiệp của tôi",
+    "description": "Một dòng thời gian về các vai trò và kinh nghiệm đã định hình chuyên môn của tôi trong xây dựng các hệ thống production.",
+    "current": "Hiện tại"
+  },
+  "services": {
+    "badge": "Dịch vụ",
+    "title": "Tôi có thể",
+    "titleAccent": "giúp gì cho bạn",
+    "description": "Từ một trang landing đơn giản đến các hệ thống phân tán phức tạp — tôi sẵn sàng hỗ trợ."
+  },
+  "contact": {
+    "badge": "Liên hệ",
+    "title": "Hãy làm việc",
+    "titleAccent": "cùng nhau",
+    "description": "Có ý tưởng dự án? Tôi rất muốn nghe về nó. Hãy xây dựng một cái gì đó tuyệt vời.",
+    "getInTouch": "Liên hệ với tôi",
+    "availability": "Tôi hiện đang sẵn sàng cho các dự án freelance, vị trí full-time và các dịch vụ tư vấn. Đừng ngần ngại liên hệ!",
+    "connectWith": "Kết nối với tôi",
+    "fullName": "Họ và tên",
+    "email": "Địa chỉ email",
+    "message": "Tin nhắn",
+    "send": "Gửi tin nhắn",
+    "sending": "Đang gửi...",
+    "success": "Tin nhắn đã gửi!",
+    "successMsg": "Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ."
+  },
+  "footer": {
+    "madeWith": "Tạo với",
+    "in": "tại TP.HCM",
+    "backToTop": "Về đầu trang",
+    "role": "Software Engineer / Fullstack Developer"
+  },
+  "errors": {
+    "nameRequired": "Tên phải có ít nhất 2 ký tự",
+    "nameTooLong": "Tên quá dài",
+    "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ",
+    "messageShort": "Tin nhắn phải có ít nhất 10 ký tự",
+    "messageLong": "Tin nhắn quá dài"
+  }
+}

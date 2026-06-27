@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Duong Nguyen",
+    "title": "Full Stack Developer",
+    "subtitle": "Building innovative solutions with React, Spring Boot & Cloud Technologies",
+    "cta": "Explore My Work",
+    "download": "Download CV"
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "Building the Future,",
+    "titleAccent": "One Commit at a Time",
+    "description": "Passionate fullstack engineer with a focus on scalable architecture and delightful user experiences.",
+    "stats": {
+      "projects": "Projects Completed",
+      "experience": "Years of Experience",
+      "technologies": "Technologies Mastered"
+    },
+    "strengths": {
+      "architecture": "System Architecture",
+      "architectureDesc": "Expert in designing microservices, event-driven systems, and scalable cloud architectures.",
+      "performance": "Performance Optimization",
+      "performanceDesc": "Specialized in caching strategies, database optimization, and efficient code patterns.",
+      "realtime": "Real-time Systems",
+      "realtimeDesc": "Experienced with WebSocket, Socket.IO, Kafka for building responsive applications.",
+      "ai": "AI Integration",
+      "aiDesc": "Proficient in integrating AI services (Gemini AI, AWS Bedrock) into production systems."
+    }
+  },
+  "skills": {
+    "badge": "Skills",
+    "title": "Tools I Work",
+    "titleAccent": "With",
+    "description": "A curated set of technologies and tools I use to build scalable, high-performance applications."
+  },
+  "projects": {
+    "badge": "Projects",
+    "title": "Things I've",
+    "titleAccent": "Built",
+    "description": "A showcase of real-world applications I've designed and engineered from scratch.",
+    "featured": "Featured",
+    "keyFeatures": "Key Features",
+    "technologies": "Technologies",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo"
+  },
+  "experience": {
+    "badge": "Experience",
+    "title": "My Professional",
+    "titleAccent": "Journey",
+    "description": "A timeline of roles and experiences that shaped my expertise in building production systems.",
+    "current": "Current"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "What I Can",
+    "titleAccent": "Do for You",
+    "description": "From a simple landing page to complex distributed systems — I've got you covered."
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's Work",
+    "titleAccent": "Together",
+    "description": "Have a project in mind? I'd love to hear about it. Let's build something great.",
+    "getInTouch": "Get in Touch",
+    "availability": "I'm currently available for freelance projects, full-time roles, and consulting engagements. Don't hesitate to reach out!",
+    "connectWith": "Connect with me",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message Sent!",
+    "successMsg": "Thanks for reaching out! I'll get back to you within 24 hours."
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "in": "in HCMC",
+    "backToTop": "Back to top",
+    "role": "Software Engineer / Fullstack Developer"
+  },
+  "errors": {
+    "nameRequired": "Name must be at least 2 characters",
+    "nameTooLong": "Name too long",
+    "emailInvalid": "Please enter a valid email address",
+    "messageShort": "Message must be at least 10 characters",
+    "messageLong": "Message too long"
+  }
+}

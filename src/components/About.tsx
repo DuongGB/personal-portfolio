@@ -1,235 +1,120 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Briefcase, Code2, Award, Target, Brain, Handshake, Sparkles, Zap, GraduationCap, Building2, Settings, Puzzle } from "lucide-react";
+import { Award, Briefcase, Building2, Code2, GraduationCap, Puzzle, ServerCog, Target } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
 
 const STATS = [
-  {
-    icon: Briefcase,
-    value: "1+",
-    label: "Years Experience",
-    color: "text-violet-600 dark:text-violet-400",
-  },
-  {
-    icon: Code2,
-    value: "5+",
-    label: "Projects Delivered",
-    color: "text-indigo-600 dark:text-indigo-400",
-  },
-  {
-    icon: Award,
-    value: "10+",
-    label: "Happy Clients",
-    color: "text-cyan-600 dark:text-cyan-400",
-  },
-  {
-    icon: Target,
-    value: "99%",
-    label: "Client Satisfaction",
-    color: "text-emerald-600 dark:text-emerald-400",
-  },
+  { icon: Briefcase, value: "1+", label: "Years Experience" },
+  { icon: Code2, value: "5+", label: "Projects Delivered" },
+  { icon: Award, value: "3.22", label: "GPA / 4.0" },
+  { icon: Target, value: "47.2k", label: "Lines shipped in projects" },
 ];
 
 const STRENGTHS = [
   {
-    title: "Problem Solver",
-    icon: Brain,
-    desc: "Turn complex challenges into elegant solutions",
+    title: "Microservices",
+    icon: Building2,
+    desc: "Independent services, Kafka flows, containerized deployment.",
   },
   {
-    title: "Team Player",
-    icon: Handshake,
-    desc: "Collaborate and lift team performance",
+    title: "Backend depth",
+    icon: ServerCog,
+    desc: "Spring Boot APIs with security, persistence, and monitoring.",
   },
   {
-    title: "Clean Code",
-    icon: Sparkles,
-    desc: "Readable, maintainable, and scalable code",
+    title: "Product UI",
+    icon: Code2,
+    desc: "React interfaces that keep complex workflows readable.",
   },
   {
-    title: "Fast Learner",
-    icon: Zap,
-    desc: "Adapt quickly to new technologies",
+    title: "Problem solving",
+    icon: Puzzle,
+    desc: "Breaks vague requirements into testable technical steps.",
   },
 ];
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useTranslation();
 
   return (
-    <section
-      id="about"
-      className="bg-white/40 dark:bg-slate-950/20 backdrop-blur-sm relative"
-    >
-      {/* Dynamic light blob in background */}
-      <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-violet-400/5 dark:bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="border-b border-zinc-200 bg-[#f7f8f6] py-24 dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="About Me"
-          title="Building the Future,"
-          titleAccent="One Commit at a Time"
-          description="Passionate fullstack engineer with a focus on scalable architecture and delightful user experiences."
+          badge={t("about.badge")}
+          title={t("about.title")}
+          titleAccent={t("about.titleAccent")}
+          description={t("about.description")}
         />
 
-        <div ref={ref} className="mt-16 grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Bio */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            className="space-y-6"
-          >
-            <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-              <p>
-                Hi! I'm{" "}
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  Duong Nguyen
-                </span>
-                , a recent{" "}
-                <span className="text-violet-600 dark:text-violet-400 font-semibold">
-                  Software Engineering graduate
-                </span>{" "}
-                with hands-on experience building scalable web applications.
-              </p>
-              <p>
-                I specialize in building production-ready systems using{" "}
-                <span className="text-violet-600 dark:text-violet-400 font-semibold">
-                  ReactJS
-                </span>
-                ,{" "}
-                <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
-                  Spring Boot
-                </span>
-                , and{" "}
-                <span className="text-cyan-600 dark:text-cyan-400 font-semibold">
-                  Microservices
-                </span>
-                . I have a strong foundation in real-time systems, e-commerce
-                platforms, and distributed architectures.
-              </p>
-              <p>
-                Passionate about leveraging{" "}
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                  AI integrations
-                </span>{" "}
-                and modern DevOps practices to deliver high-quality software
-                that solves real-world problems.
-              </p>
-            </div>
-
-            {/* Education */}
-            <div className="rounded-2xl p-5 liquid-glass-light border border-white/20 dark:border-white/5">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                <GraduationCap className="w-5 h-5 text-violet-600 dark:text-violet-400" /> Education
-              </h3>
-              <div className="space-y-2">
-                <div>
-                  <p className="font-medium text-gray-800 dark:text-gray-200 text-sm">
-                    Bachelor of Software Engineering
-                  </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500">
-                    Ho Chi Minh City University of Industry · 2021 – 2025
-                  </p>
-                  <p className="text-xs font-semibold text-violet-600 dark:text-violet-400 mt-1">
-                    GPA: 3.22 / 4.0
-                  </p>
-                </div>
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.55)] dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="space-y-5 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+                <p>
+                  Hi, I am <strong className="text-zinc-950 dark:text-white">Duong Nguyen</strong>, a Software Engineering graduate focused on building dependable web systems.
+                </p>
+                <p>
+                  My strongest work sits around React, Spring Boot, microservices, realtime messaging, and infrastructure-aware delivery. I like systems that are easy to reason about after the first version ships.
+                </p>
+                <p>
+                  I am looking for a Fresher / Junior Software Engineer role where I can contribute to backend-heavy fullstack products and keep improving in production engineering.
+                </p>
               </div>
             </div>
 
-            {/* Career Goal */}
-            <div className="rounded-2xl p-5 liquid-glass border border-violet-200/50 dark:border-violet-800/40 shadow-lg shadow-violet-500/5">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                <Target className="w-5 h-5 text-violet-600 dark:text-violet-400" /> Career Goal
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Seeking a Fresher / Junior Software Engineer position to
-                contribute to impactful software systems and bring value through
-                modern technical solutions.
-              </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <GraduationCap className="mb-5 h-6 w-6 text-teal-700 dark:text-teal-300" />
+                <h3 className="text-lg font-black text-zinc-950 dark:text-white">Education</h3>
+                <p className="mt-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                  Bachelor of Software Engineering
+                </p>
+                <p className="mt-1 text-sm leading-6 text-zinc-500 dark:text-zinc-400">
+                  Ho Chi Minh City University of Industry, 2021 - 2025
+                </p>
+              </div>
+              <div className="rounded-2xl border border-teal-700/20 bg-teal-700/[0.06] p-6 dark:border-teal-300/20 dark:bg-teal-300/[0.07]">
+                <Target className="mb-5 h-6 w-6 text-teal-700 dark:text-teal-300" />
+                <h3 className="text-lg font-black text-zinc-950 dark:text-white">Career Goal</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+                  Join a product team that values readable architecture, stable delivery, and practical feature ownership.
+                </p>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right: Stats + Strengths */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Stats Grid */}
+          <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
-              {STATS.map((stat, i) => (
-                <motion.div
+              {STATS.map((stat) => (
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="rounded-2xl p-5 liquid-glass liquid-glass-hover group shadow-md shadow-black/5"
+                  className="rounded-2xl border border-zinc-200 bg-white p-5 transition hover:-translate-y-0.5 dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <stat.icon
-                    className={`w-6 h-6 ${stat.color} mb-3 group-hover:scale-110 transition-transform`}
-                  />
-                  <p className={`text-3xl font-black ${stat.color}`}>
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  <stat.icon className="mb-5 h-5 w-5 text-teal-700 dark:text-teal-300" />
+                  <p className="text-3xl font-black text-zinc-950 dark:text-white">{stat.value}</p>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-zinc-500 dark:text-zinc-500">
                     {stat.label}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            {/* Personal Strengths */}
-            <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-                Personal Strengths
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  {
-                    title: "Microservices",
-                    icon: Building2,
-                    desc: "Designing independent scalable services",
-                  },
-                  {
-                    title: "Backend Dev",
-                    icon: Settings,
-                    desc: "Secure & efficient Spring Boot APIs",
-                  },
-                  {
-                    title: "Real-time Systems",
-                    icon: Zap,
-                    desc: "Sockets, Kafka & Event-driven",
-                  },
-                  {
-                    title: "Problem Solving",
-                    icon: Puzzle,
-                    desc: "Analytical approach to complexity",
-                  },
-                ].map((s, i) => (
-                  <motion.div
-                    key={s.title}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                    className="rounded-xl p-4 liquid-glass liquid-glass-hover shadow-sm hover:shadow-md"
-                  >
-                    <s.icon className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                    <p className="font-semibold text-sm text-gray-900 dark:text-white mt-2">
-                      {s.title}
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                      {s.desc}
-                    </p>
-                  </motion.div>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3 className="text-lg font-black text-zinc-950 dark:text-white">Core Strengths</h3>
+              <div className="mt-5 grid gap-4">
+                {STRENGTHS.map((strength) => (
+                  <div key={strength.title} className="flex gap-4 border-t border-zinc-200 pt-4 first:border-t-0 first:pt-0 dark:border-zinc-800">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-700/10 text-teal-700 dark:bg-teal-300/10 dark:text-teal-300">
+                      <strength.icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-black text-zinc-950 dark:text-white">{strength.title}</p>
+                      <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{strength.desc}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

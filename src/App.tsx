@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/useTheme";
 
-// Lazy load below-fold sections
 const About = lazy(() => import("@/components/About"));
 const Skills = lazy(() => import("@/components/Skills"));
 const Projects = lazy(() => import("@/components/Projects"));
@@ -14,8 +13,9 @@ const Contact = lazy(() => import("@/components/Contact"));
 
 function SectionLoader() {
   return (
-    <div className=" flex items-center justify-center">
-      <div className="w-8 h-8 rounded-full border-2 border-violet-500/20 border-t-violet-500 animate-spin" />
+    <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_0.9fr] lg:px-8">
+      <div className="h-48 rounded-2xl border border-zinc-200 bg-zinc-100/80 dark:border-zinc-800 dark:bg-zinc-900" />
+      <div className="h-48 rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/70" />
     </div>
   );
 }
@@ -24,7 +24,7 @@ export default function App() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-[100dvh] bg-[#f7f8f6] text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       <main>
