@@ -8,7 +8,6 @@ import {
   Download,
   Mail,
   MapPin,
-  Network,
   ServerCog,
   Sparkles,
 } from "lucide-react";
