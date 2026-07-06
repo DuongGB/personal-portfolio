@@ -12,8 +12,10 @@
     "name": "Duong Nguyen",
     "title": "Full Stack Developer",
     "subtitle": "Building innovative solutions with React, Spring Boot & Cloud Technologies",
-    "cta": "Explore My Work",
-    "download": "Download CV"
+    "cta": "View Projects",
+    "download": "Download CV",
+    "email": "Email Me",
+    "ctaHint": "Recommended path for recruiters: review projects, download CV, then email me for an interview."
   },
   "about": {
     "badge": "About Me",
@@ -51,7 +53,12 @@
     "keyFeatures": "Key Features",
     "technologies": "Technologies",
     "sourceCode": "Source Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "ctaBadge": "Next step",
+    "ctaTitle": "Seen the projects? Review my CV and contact me directly.",
+    "ctaDescription": "Each project shows source code, architecture decisions, and the stack I used. If it matches your team, my CV and email are one click away.",
+    "ctaCv": "Download CV",
+    "ctaEmail": "Email Me"
   },
   "experience": {
     "badge": "Experience",
@@ -80,7 +87,9 @@
     "send": "Send Message",
     "sending": "Sending...",
     "success": "Message Sent!",
-    "successMsg": "Thanks for reaching out! I'll get back to you within 24 hours."
+    "successMsg": "Thanks for reaching out! I'll get back to you within 24 hours.",
+    "emailCta": "Email Me Directly",
+    "cvCta": "Download CV"
   },
   "footer": {
     "madeWith": "Made with",

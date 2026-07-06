@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, Mail, MapPin, MessageSquare, Phone, Send, User } from "lucide-react";
+import { CheckCircle2, Download, Mail, MapPin, MessageSquare, Phone, Send, User } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { Github, Linkedin } from "./icons/CustomSocials";
 import SectionHeader from "./SectionHeader";
-import { EMAIL } from "@/utils/data";
+import { CV_URL, EMAIL } from "@/utils/data";
 import type { ContactForm } from "@/types";
 
 const CONTACT_INFO = [
@@ -28,6 +28,9 @@ const SOCIAL = [
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useTranslation();
+  const recruiterMailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
+    "Interview opportunity - Duong Nguyen",
+  )}`;
 
   const schema = z.object({
     name: z.string().min(2, t("errors.nameRequired")).max(64, t("errors.nameTooLong")),
@@ -69,6 +72,24 @@ export default function Contact() {
               <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                 Available for junior engineering roles, freelance delivery, and backend-heavy fullstack work.
               </p>
+              <div className="mt-5 grid gap-3">
+                <a
+                  href={recruiterMailto}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-zinc-800 active:scale-[0.98] dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+                >
+                  <Mail className="h-4 w-4" />
+                  {t("contact.emailCta")}
+                </a>
+                <a
+                  href={CV_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm font-bold text-zinc-900 transition hover:border-teal-700/40 active:scale-[0.98] dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:hover:border-teal-300/40"
+                >
+                  <Download className="h-4 w-4" />
+                  {t("contact.cvCta")}
+                </a>
+              </div>
             </div>
 
             <div className="grid gap-3">

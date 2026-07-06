@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { Bot, ExternalLink, Layers3, Star, X } from "lucide-react";
+import { Bot, Download, ExternalLink, Layers3, Mail, Star, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-scroll";
 import { Github } from "./icons/CustomSocials";
 import SectionHeader from "./SectionHeader";
-import { PROJECTS } from "@/utils/data";
+import { CV_URL, PROJECTS } from "@/utils/data";
 import type { Project } from "@/types";
 
 export default function Projects() {
@@ -34,6 +35,40 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
             />
           ))}
+        </div>
+
+        <div className="mt-12 border-y border-zinc-200 py-7 dark:border-zinc-800">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+                {t("projects.ctaBadge")}
+              </p>
+              <h3 className="mt-2 text-2xl font-black tracking-tight text-zinc-950 dark:text-white">
+                {t("projects.ctaTitle")}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                {t("projects.ctaDescription")}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={CV_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-zinc-800 active:scale-[0.98] dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+              >
+                <Download className="h-4 w-4" />
+                {t("projects.ctaCv")}
+              </a>
+              <Link to="contact" smooth duration={450}>
+                <button className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-bold text-zinc-900 transition hover:border-teal-700/40 active:scale-[0.98] dark:border-zinc-800 dark:bg-zinc-900 dark:text-white dark:hover:border-teal-300/40">
+                  <Mail className="h-4 w-4" />
+                  {t("projects.ctaEmail")}
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

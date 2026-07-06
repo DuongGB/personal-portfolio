@@ -12,8 +12,10 @@
     "name": "Dương Nguyễn",
     "title": "Full Stack Developer",
     "subtitle": "Xây dựng các giải pháp sáng tạo với React, Spring Boot & Cloud Technologies",
-    "cta": "Xem công việc của tôi",
-    "download": "Tải CV"
+    "cta": "Xem dự án",
+    "download": "Tải CV",
+    "email": "Gửi email",
+    "ctaHint": "Luồng đề xuất cho nhà tuyển dụng: xem dự án, tải CV, rồi gửi email phỏng vấn."
   },
   "about": {
     "badge": "Về Tôi",
@@ -51,7 +53,12 @@
     "keyFeatures": "Tính năng chính",
     "technologies": "Công nghệ",
     "sourceCode": "Mã nguồn",
-    "liveDemo": "Demo trực tiếp"
+    "liveDemo": "Demo trực tiếp",
+    "ctaBadge": "Bước tiếp theo",
+    "ctaTitle": "Đã xem dự án? Hãy xem CV và liên hệ trực tiếp.",
+    "ctaDescription": "Mỗi dự án thể hiện mã nguồn, quyết định kiến trúc và công nghệ tôi đã dùng. Nếu phù hợp với đội ngũ của bạn, CV và email luôn sẵn sàng.",
+    "ctaCv": "Tải CV",
+    "ctaEmail": "Gửi email"
   },
   "experience": {
     "badge": "Kinh nghiệm",
@@ -80,7 +87,9 @@
     "send": "Gửi tin nhắn",
     "sending": "Đang gửi...",
     "success": "Tin nhắn đã gửi!",
-    "successMsg": "Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ."
+    "successMsg": "Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ.",
+    "emailCta": "Gửi email trực tiếp",
+    "cvCta": "Tải CV"
   },
   "footer": {
     "madeWith": "Tạo với",

@@ -32,11 +32,6 @@ const CAPABILITIES = [
   "AI-assisted product features",
 ];
 
-const AI_NODES = [
-  { label: "Intent", value: "0.84" },
-  { label: "Latency", value: "42ms" },
-  { label: "Signal", value: "A-17" },
-];
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -105,10 +100,13 @@ export default function Hero() {
             <Link to="contact" smooth duration={450}>
               <button className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold text-teal-700 transition hover:bg-teal-700/10 active:translate-y-px dark:text-teal-300">
                 <Mail className="h-4 w-4" />
-                {t("contact.getInTouch")}
+                {t("hero.email")}
               </button>
             </Link>
           </div>
+          <p className="mt-3 text-sm font-semibold text-zinc-500 dark:text-zinc-500">
+            {t("hero.ctaHint")}
+          </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <span className="text-sm font-semibold text-zinc-500 dark:text-zinc-500">
@@ -146,7 +144,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <p className="text-sm font-black text-zinc-950 dark:text-white">
-                      Fresher Software Engineer
+                      Software Engineer
                     </p>
                     <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                       Product-minded fullstack work with reliable backend
@@ -154,19 +152,7 @@ export default function Hero() {
                     </p>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
-                    {AI_NODES.map((node) => (
-                      <div
-                        key={node.label}
-                        className="rounded-xl border border-zinc-200 bg-white px-2.5 py-2 dark:border-zinc-800 dark:bg-zinc-900"
-                      >
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-zinc-400">
-                          {node.label}
-                        </p>
-                        <p className="mt-1 font-mono text-xs font-black text-zinc-900 dark:text-zinc-100">
-                          {node.value}
-                        </p>
-                      </div>
-                    ))}
+                   
                   </div>
                 </div>
 
