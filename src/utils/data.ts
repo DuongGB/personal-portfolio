@@ -349,7 +349,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "1",
-    company: "FPT Software",
+    company: "FPT Software Ho Chi Minh",
     role: "Intern Java Developer",
     duration: "Sep 2025 – Nov 2025",
     startDate: "2025-09-01",
