@@ -21,7 +21,7 @@ import { sendMessage, demoResponse, type ChatMessage } from "@/services/geminiSe
 // ── Quick-action suggestion chips with Lucide icons ───────────────────────────
 interface Suggestion {
   text: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }
 
 const SUGGESTIONS_EN: Suggestion[] = [
