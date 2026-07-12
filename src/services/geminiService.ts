@@ -99,6 +99,128 @@ interface GeminiResponse {
   };
 }
 
+// ── Cache Configuration ───────────────────────────────────────────────────────
+const CACHE_KEY = "ai_chat_response_cache";
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+interface CacheItem {
+  response: string;
+  timestamp: number;
+}
+
+interface CacheData {
+  [queryKey: string]: CacheItem;
+}
+
+// Helper to normalize queries (ignores lowercase, tones, spacing, and punctuation)
+function normalizeText(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // Bỏ dấu tiếng Việt
+    .replace(/[.,?/#!$%^&* text;:{}=\-_`~()]/g, "") // Bỏ ký tự đặc biệt
+    .replace(/\s+/g, ""); // Bỏ khoảng trắng
+}
+
+// Levenshtein Distance for similarity comparison
+function getSimilarity(s1: string, s2: string): number {
+  const len1 = s1.length;
+  const len2 = s2.length;
+  const maxLen = Math.max(len1, len2);
+  if (maxLen === 0) return 1.0;
+
+  const track = Array(len2 + 1).fill(null).map(() => Array(len1 + 1).fill(null));
+  for (let i = 0; i <= len1; i += 1) track[0][i] = i;
+  for (let j = 0; j <= len2; j += 1) track[j][0] = j;
+
+  for (let j = 1; j <= len2; j += 1) {
+    for (let i = 1; i <= len1; i += 1) {
+      const indicator = s1[i - 1] === s2[j - 1] ? 0 : 1;
+      track[j][i] = Math.min(
+        track[j][i - 1] + 1, // deletion
+        track[j - 1][i] + 1, // insertion
+        track[j - 1][i - 1] + indicator // substitution
+      );
+    }
+  }
+  return (maxLen - track[len2][len1]) / maxLen;
+}
+
+// Cleans up cache items older than 24 hours
+function cleanExpiredCache(cache: CacheData): CacheData {
+  const now = Date.now();
+  const cleaned: CacheData = {};
+  let changed = false;
+
+  for (const key in cache) {
+    if (now - cache[key].timestamp < ONE_DAY_MS) {
+      cleaned[key] = cache[key];
+    } else {
+      cleaned[key] = null as any;
+      delete cleaned[key];
+      changed = true;
+    }
+  }
+
+  if (cleaned) {
+    // filter nulls
+    Object.keys(cleaned).forEach(k => cleaned[k] === null && delete cleaned[k]);
+  }
+
+  if (changed) {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cleaned));
+  }
+  return cleaned;
+}
+
+// Finds a similar cached query
+function findSimilarCache(query: string, lng: string): string | null {
+  try {
+    const rawCache = localStorage.getItem(CACHE_KEY);
+    if (!rawCache) return null;
+
+    let cache: CacheData = JSON.parse(rawCache);
+    cache = cleanExpiredCache(cache);
+
+    const normQuery = normalizeText(query);
+    const queryKeyPrefix = `${lng}:`;
+
+    for (const cacheKey in cache) {
+      if (cacheKey.startsWith(queryKeyPrefix)) {
+        const cachedNormQuery = cacheKey.substring(queryKeyPrefix.length);
+        const similarity = getSimilarity(normQuery, cachedNormQuery);
+        
+        // Match if similarity is 82% or higher
+        if (similarity >= 0.82) {
+          return cache[cacheKey].response;
+        }
+      }
+    }
+  } catch (e) {
+    console.error("Cache read error:", e);
+  }
+  return null;
+}
+
+// Saves response to local storage cache
+function saveToCache(query: string, response: string, lng: string) {
+  try {
+    const rawCache = localStorage.getItem(CACHE_KEY);
+    const cache: CacheData = rawCache ? JSON.parse(rawCache) : {};
+
+    const key = `${lng}:${normalizeText(query)}`;
+    cache[key] = {
+      response,
+      timestamp: Date.now(),
+    };
+
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+  } catch (e) {
+    console.error("Cache write error:", e);
+  }
+}
+
 function buildContents(history: ChatMessage[]): GeminiContent[] {
   return history.map((msg) => ({
     role: msg.role,
@@ -111,12 +233,20 @@ export async function sendMessage(
   userMessage: string,
   lng: string = "en",
 ): Promise<string> {
+  // 1. Try to find a similar query in the local cache
+  const cachedResponse = findSimilarCache(userMessage, lng);
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
 
   if (!apiKey) {
     // Demo mode — simulate a response
     await new Promise((r) => setTimeout(r, 800));
-    return demoResponse(userMessage, lng);
+    const reply = demoResponse(userMessage, lng);
+    saveToCache(userMessage, reply, lng);
+    return reply;
   }
 
   const contents: GeminiContent[] = [
@@ -156,6 +286,11 @@ export async function sendMessage(
 
   const text =
     data.candidates?.[0]?.content?.parts?.[0]?.text ?? "No response received.";
+
+  // 2. Cache successful responses
+  if (text && text !== "No response received.") {
+    saveToCache(userMessage, text, lng);
+  }
 
   return text;
 }
