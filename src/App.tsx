@@ -10,6 +10,7 @@ const Projects = lazy(() => import("@/components/Projects"));
 const Experience = lazy(() => import("@/components/Experience"));
 const ServicesSection = lazy(() => import("@/components/Services"));
 const Contact = lazy(() => import("@/components/Contact"));
+const AiChat = lazy(() => import("@/components/AiChat"));
 
 function SectionLoader() {
   return (
@@ -50,6 +51,11 @@ export default function App() {
       </main>
 
       <Footer />
+
+      {/* AI Portfolio Assistant — floating widget */}
+      <Suspense fallback={null}>
+        <AiChat />
+      </Suspense>
     </div>
   );
 }

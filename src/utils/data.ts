@@ -122,8 +122,9 @@ export const PROJECTS: Project[] = [
     id: "6",
     title: "Human Resource Management System",
     description:
-      "Full-stack Human Resource Management platform designed to centralize employee data, automate HR workflows and enforce role-based access across administrator, manager and employee modules.",
+      "Full-stack Human Resource Management platform with AI-powered analytics, automated HR workflows and role-based access across administrator, manager and employee modules. Integrates Gemini AI for intelligent report generation, workforce insights, and HR data analysis.",
     features: [
+      "Integrated Gemini AI for intelligent HR report generation, workforce insight explanation, and natural-language HR data analysis",
       "Automated HR workflows and enforced role-based access across administrator, manager, and employee modules",
       "Implemented system automation with Cron jobs for recurring background tasks",
       "Configured MinIO for CV information storage and MailHog for testing email confirmations and password resets",
@@ -139,6 +140,7 @@ export const PROJECTS: Project[] = [
       "REST API",
       "JWT",
       "JPA/Hibernate",
+      "Gemini AI",
       "Cron Job",
       "Apache POI",
       "Playwright",
