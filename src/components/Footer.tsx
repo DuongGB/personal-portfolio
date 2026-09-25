@@ -2,12 +2,12 @@ import { ArrowUp, Mail } from "lucide-react";
 import { Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 import { EMAIL, NAV_LINKS } from "@/utils/data";
-import { Github, Linkedin } from "./icons/CustomSocials";
+import { Github as CustomGithub, Linkedin as CustomLinkedin } from "./icons/CustomSocials";
 
 const SOCIALS = [
-  { icon: Github, href: "https://github.com/DuongGB", label: "GitHub" },
+  { icon: CustomGithub, href: "https://github.com/DuongGB", label: "GitHub" },
   {
-    icon: Linkedin,
+    icon: CustomLinkedin,
     href: "https://www.linkedin.com/in/d%C6%B0%C6%A1ng-nguy%E1%BB%85n-7528a736a/",
     label: "LinkedIn",
   },
@@ -19,36 +19,43 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950 py-12 text-white">
+    <footer className="border-t border-zinc-200/80 bg-zinc-950 text-white dark:border-white/5 py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-sm font-black text-zinc-950">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between pb-10 border-b border-zinc-800">
+          
+          {/* Brand Info */}
+          <div className="md:col-span-4 space-y-2">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-teal-500 to-emerald-400 text-xs font-mono-tech font-bold text-zinc-950">
                 DN
-              </span>
-              <span className="text-lg font-black tracking-tight">
-                Duong<span className="text-teal-300">Nguyen</span>
+              </div>
+              <span className="text-base font-bold tracking-tight text-white">
+                Duong<span className="text-teal-400">.dev</span>
               </span>
             </div>
-            <p className="mt-3 text-sm text-zinc-400">{t("footer.role")}</p>
+            <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
+              {t("footer.roleDesc")}
+            </p>
           </div>
 
-          <nav className="flex flex-wrap justify-start gap-x-5 gap-y-2 md:justify-center">
+          {/* Quick Nav Links */}
+          <div className="md:col-span-5 flex flex-wrap gap-x-5 gap-y-2">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.target}
                 to={link.target}
                 smooth
                 duration={450}
-                className="cursor-pointer text-sm font-bold text-zinc-400 transition hover:text-teal-300"
+                className="cursor-pointer text-xs font-mono-tech font-semibold text-zinc-400 hover:text-teal-300 transition-colors"
               >
-                {link.label}
+                {t(`nav.${link.target}`)}
               </Link>
             ))}
-          </nav>
+          </div>
 
-          <div className="flex gap-2 md:justify-end">
+          {/* Socials */}
+          <div className="md:col-span-3 flex items-center md:justify-end gap-2">
             {SOCIALS.map((social) => (
               <a
                 key={social.label}
@@ -56,28 +63,32 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:-translate-y-0.5 hover:border-teal-300/30 hover:text-teal-300 active:translate-y-0"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:border-teal-500/40 hover:text-teal-300 active:scale-90"
               >
                 <social.icon className="h-4 w-4" />
               </a>
             ))}
           </div>
+
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t border-zinc-800 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm font-medium text-zinc-500">
-            © {currentYear} Duong Nguyen. {t("footer.madeWith")} in HCMC
-          </p>
-          <Link to="home" smooth duration={450}>
+        {/* Bottom Credits & Back to Top */}
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs font-mono-tech text-zinc-500">
+          <div>
+            {t("footer.copyright", { year: currentYear })}
+          </div>
+
+          <Link to="home" smooth duration={500}>
             <button
-              aria-label="Back to top"
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 px-4 py-2 text-sm font-bold text-zinc-400 transition hover:border-teal-300/30 hover:text-teal-300 active:scale-[0.98]"
+              aria-label={t("footer.backToTop")}
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-4 py-1.5 text-xs text-zinc-400 transition hover:border-teal-500/40 hover:text-teal-300 active:scale-95"
             >
-              Back to top
-              <ArrowUp className="h-4 w-4" />
+              <span>{t("footer.backToTop")}</span>
+              <ArrowUp className="h-3.5 w-3.5" />
             </button>
           </Link>
         </div>
+
       </div>
     </footer>
   );

@@ -16,7 +16,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const CV_URL =
-  "https://drive.google.com/uc?export=download&id=1jDEi9qxp3ocUe8lkMT1LT4XtFnqszqxu";
+  "https://drive.google.com/uc?export=download&id=1i8-4EICm7YJELf6y9nRVa5mk1apz1pKU";
 export const EMAIL = "duongnguyenqn1323@gmail.com";
 
 export const SKILLS: SkillCategory[] = [
@@ -26,7 +26,6 @@ export const SKILLS: SkillCategory[] = [
     color: "from-cyan-500 to-blue-500",
     skills: [
       { name: "ReactJS", level: 90 },
-      { name: "NextJS", level: 85 },
       { name: "React Native", level: 80 },
       { name: "TailwindCSS", level: 95 },
       { name: "Redux", level: 85 },
@@ -58,6 +57,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "Postman", level: 90 },
       { name: "Jira", level: 90 },
       { name: "IntelliJ IDEA", level: 95 },
+      { name: "DBeaver", level: 90 },
     ],
   },
   {
@@ -82,7 +82,8 @@ export const SKILLS: SkillCategory[] = [
       { name: "MongoDB", level: 85 },
       { name: "SQL Server", level: 82 },
       { name: "MariaDB", level: 85 },
-    ],
+      { name: "MySQL", level: 80 },
+    ],  
   },
   {
     category: "Realtime & Messaging",
@@ -104,18 +105,18 @@ export const SKILLS: SkillCategory[] = [
     ],
   },
   {
-    category: "AI / Data",
-    icon: "Brain",
+    category: "AI Development",
+    icon: "Sparkles",
     color: "from-violet-500 to-fuchsia-600",
     skills: [
-      { name: "Gemini AI / AWS Bedrock", level: 85 },
-      { name: "Python FastAPI", level: 82 },
-      { name: "Prophet Model", level: 75 },
-      { name: "Recommendation Systems", level: 80 },
-      { name: "Supabase", level: 85 },
+      { name: "Vibe Coding", level: 100 },
+      { name: "Claude Code", level: 100 },
+      { name: "OpenAI Codex", level: 100 },
+      { name: "GitHub Copilot", level: 100 },
+      { name: "Antigravity", level: 100 },
     ],
   },
-];
+];  
 
 export const PROJECTS: Project[] = [
   {
@@ -440,3 +441,340 @@ export const SERVICES: Service[] = [
     ],
   },
 ];
+
+export const PROJECTS_VI: Project[] = [
+  {
+    id: "6",
+    title: "Hệ thống Quản trị Nhân sự Toàn diện (HRMPro)",
+    description:
+      "Nền tảng Quản trị Nhân sự toàn diện với phân tích dữ liệu ứng dụng AI, quy trình HR tự động và kiểm soát truy cập phân quyền giữa Quản trị viên, Quản lý và Nhân viên. Tích hợp Gemini AI để tạo báo cáo thông minh, phân tích lực lượng lao động và thấu hiểu dữ liệu nhân sự.",
+    features: [
+      "Tích hợp Gemini AI để tạo báo cáo nhân sự thông minh, giải thích insight nhân sự và phân tích dữ liệu bằng ngôn ngữ tự nhiên",
+      "Tự động hóa quy trình nghiệp vụ HR và thiết lập kiểm soát phân quyền chặt chẽ giữa Quản trị viên, Quản lý và Nhân viên",
+      "Triển khai Cron job tự động hóa các tác vụ định kỳ chạy ngầm trong hệ thống",
+      "Cấu hình MinIO lưu trữ hồ sơ CV và MailHog phục vụ kiểm thử gửi email xác nhận và đặt lại mật khẩu",
+      "Xây dựng RESTful API chuẩn mực với Spring Boot theo kiến trúc phân tầng sạch (layered architecture)",
+      "Triển khai xác thực JWT và ủy quyền theo vai trò (RBAC) đảm bảo an toàn cho các tác vụ nhân sự",
+      "Thiết kế cơ sở dữ liệu quan hệ cho hồ sơ nhân viên, cơ cấu tổ chức, chấm công và giao dịch HR",
+      "Xây dựng giao diện quản lý bằng React và TailwindCSS với tìm kiếm, lọc dữ liệu, quản lý bản ghi và kiểm tra biểu mẫu",
+    ],
+    techStack: [
+      "ReactJS",
+      "TailwindCSS",
+      "Spring Boot",
+      "REST API",
+      "JWT",
+      "JPA/Hibernate",
+      "Gemini AI",
+      "Cron Job",
+      "Apache POI",
+      "Playwright",
+      "Flyway",
+      "MySQL",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/DuongGB/HRMPro",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "Nền tảng Đặt Sân & Vận Hành Trung Tâm Thể Thao",
+    description:
+      "Nền tảng đặt sân và vận hành cơ sở thể thao cấp doanh nghiệp với thanh toán trực tuyến, check-in bằng mã QR, trợ lý đặt sân AI, thông báo thời gian thực cho nhân viên và dashboard quản trị toàn diện.",
+    features: [
+      "Xây dựng hệ thống đặt sân full-stack với frontend React/Vite, Spring Boot REST API, cơ sở dữ liệu PostgreSQL và JPA repositories",
+      "Triển khai tính năng kiểm tra tình trạng sân trống, chọn khung giờ theo ngày, tạo và quản lý đặt chỗ, theo dõi trạng thái thanh toán",
+      "Tích hợp PayPal Smart checkout với quy trình xác nhận đơn hàng và kiểm tra tính hợp lệ giao dịch phía backend",
+      "Phát triển tính năng tạo vé QR và quét mã check-in sử dụng thư viện qrcode.react và @yudiel/react-qr-scanner",
+      "Bổ sung hệ thống cảnh báo vận hành thời gian thực sử dụng Spring WebSocket, SockJS, STOMP và thông báo trực quan trên dashboard",
+      "Tích hợp Gemini AI làm trợ lý đặt sân hướng dẫn người dùng lựa chọn sân thi đấu và giải đáp thắc mắc quy trình đặt chỗ",
+      "Triển khai backend trên Render và frontend trên Vercel với container hóa Docker",
+    ],
+    techStack: [
+      "React 19",
+      "Spring Boot 4",
+      "PostgreSQL",
+      "Spring Security",
+      "Liquibase",
+      "SockJS/STOMP",
+      "PayPal SDK",
+      "Redux Toolkit",
+      "TanStack Query",
+      "TanStack Table",
+      "Recharts",
+      "Gemini AI",
+      "Cloudinary",
+      "Vercel",
+      "Render",
+      "Docker",
+      "TailwindCSS",
+      "Shadcn/ui",
+    ],
+    githubUrl: "https://github.com/DuongGB/sports-center",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Thương Mại Điện Tử Tích Hợp Gợi Ý AI & Dự Báo Doanh Thu",
+    description:
+      "Hệ thống thương mại điện tử full-stack theo kiến trúc Client-Server với sự phân tách rõ ràng giữa giao diện người dùng và logic nghiệp vụ, tích hợp hệ thống gợi ý lai và mô hình AI dự báo doanh thu.",
+    features: [
+      "Phát triển hệ thống full-stack theo kiến trúc Client-Server với sự phân tách độc lập giữa giao diện UI và nghiệp vụ",
+      "Xây dựng RESTful API vững chắc với Spring Boot 3 (JWT, nghiệp vụ phức tạp) và giao diện đa ngôn ngữ phản hồi nhanh với ReactJS, TailwindCSS & i18next, tích hợp chat thời gian thực qua WebSocket",
+      "Triển khai Hệ thống Gợi ý Lai (Hybrid Recommendation System) và Dự báo Doanh thu sử dụng Python (FastAPI) và mô hình Prophet (Meta AI)",
+      "Tích hợp thành công cổng thanh toán PayPal, đối tác vận chuyển GHN, CDN lưu trữ Cloudinary và xác thực OTP Firebase",
+      "Container hóa toàn bộ hệ thống bằng Docker; triển khai Backend trên AWS EC2/Render, Frontend trên Vercel với CI/CD, và quản lý cơ sở dữ liệu serverless với Neon PostgreSQL",
+    ],
+    techStack: [
+      "Java (Spring Boot 3)",
+      "ReactJS",
+      "TailwindCSS",
+      "Axios",
+      "React Query",
+      "i18next",
+      "Python (FastAPI)",
+      "Prophet (Meta AI)",
+      "Neon (PostgreSQL)",
+      "Docker",
+      "WebSocket",
+      "Vercel",
+      "Render",
+      "AWS EC2",
+    ],
+    githubUrl: "https://github.com/DuongGB/FE_DVFashion",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Ứng Dụng Nhắn Tin Mạng Xã Hội Thời Gian Thực Đa Nền Tảng",
+    description:
+      "Hệ thống giao tiếp đa nền tảng theo kiến trúc Client-Server, hỗ trợ tương tác và trò chuyện thời gian thực cho cả phiên bản Web và Di động.",
+    features: [
+      "Phát triển hệ thống giao tiếp đa nền tảng theo kiến trúc Client-Server, hỗ trợ tương tác thời gian thực đồng bộ trên cả Web và Mobile",
+      "Xây dựng phòng chat riêng/nhóm, bảng tin mạng xã hội (bài viết, lượt thích, bình luận), quản lý bạn bè và kết nối nhanh qua mã QR",
+      "Triển khai nhắn tin thời gian thực qua giao thức STOMP và Socket.IO; bảo mật hệ thống với xác thực JWT và phân quyền vai trò (RBAC)",
+      "Tích hợp Cloudinary phân phối media qua mạng CDN và tối ưu hóa xử lý ảnh; sử dụng MongoDB lưu trữ tin nhắn tốc độ cao và linh hoạt",
+      "Phát triển giao diện phản hồi nhanh bằng React (Web) và React Native (Mobile), quản lý state ứng dụng phức tạp với Redux",
+    ],
+    techStack: [
+      "Java (Spring Boot)",
+      "ReactJS",
+      "React Native",
+      "MongoDB",
+      "WebSocket",
+      "AWS SNS",
+      "Cloudinary",
+      "Redux",
+      "Bootstrap",
+      "STOMP Protocol",
+      "Gemini AI",
+      "Firebase",
+    ],
+    githubUrl: "",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "1",
+    title: "Nền Tảng Thương Mại Điện Tử Sản Phẩm Công Nghệ",
+    description:
+      "Giải pháp thương mại điện tử toàn diện theo kiến trúc Client-Server, thiết kế chuyên biệt cho việc bán lẻ sản phẩm công nghệ với lưu lượng truy cập cao.",
+    features: [
+      "Phát triển giải pháp thương mại điện tử toàn diện theo kiến trúc Client-Server, đáp ứng doanh số và lưu lượng truy cập cao",
+      "Thiết kế kiến trúc Spring Boot dạng module ứng dụng Service Layer, DTO mapping và Repository pattern nhằm đảm bảo tính bảo trì và hiệu năng cao",
+      "Triển khai hệ thống xác thực an toàn sử dụng JWT và Firebase; thiết lập phân quyền vai trò (RBAC) chi tiết cho Quản trị viên, Quản lý và Khách hàng",
+      "Tích hợp Gemini AI hỗ trợ tư vấn khách hàng thông minh và triển khai tự động hóa thanh toán qua Mã QR ngân hàng",
+      "Container hóa toàn bộ hệ sinh thái ứng dụng với Docker để đảm bảo môi trường phát triển và production đồng nhất",
+    ],
+    techStack: [
+      "ReactJS",
+      "Axios",
+      "Bootstrap",
+      "Java (Spring Boot)",
+      "JWT",
+      "MariaDB",
+      "Firebase",
+      "Docker",
+      "Gemini AI",
+    ],
+    githubUrl: "https://github.com/tienminhtran/Project_Architectural_Software",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: "4",
+    title: "Hệ Thống Thông Tin Phòng Thí Nghiệm (LIMS)",
+    description:
+      "Nền tảng Hệ thống Thông tin Quản lý Phòng thí nghiệm (LIMS) theo kiến trúc microservices được phát triển trong kỳ thực tập tại FPT Software, phục vụ bệnh nhân, chỉ định xét nghiệm và quy trình vận hành phòng lab.",
+    features: [
+      "Phát triển nền tảng LIMS kiến trúc microservices sử dụng Spring Boot 3.3 và Java 21, bao gồm các service IAM, Patient, Test Order, Instrument và Warehouse",
+      "Làm việc trong môi trường Agile/Scrum theo quy trình Git/GitLab",
+      "Triển khai xác thực và phân quyền bảo mật cao với AWS Cognito, JWT, OAuth2 và RBAC",
+      "Xây dựng luồng xử lý sự kiện có khả năng mở rộng cao sử dụng Apache Kafka, bộ nhớ đệm Redis và thông báo thời gian thực qua Socket.IO",
+      "Tích hợp quy trình thanh toán, phân tích dữ liệu y tế bằng AI với AWS Bedrock và xuất báo cáo động bằng JasperReports",
+      "Thiết lập hệ thống giám sát và khả năng quan sát (observability) với Prometheus, Grafana, cảnh báo Slack và AWS CloudWatch",
+      "Phát triển các tính năng giao diện người dùng mượt mà sử dụng Next.js, Tailwind CSS và shadcn/ui",
+    ],
+    techStack: [
+      "Java 21",
+      "Spring Boot",
+      "Spring Security OAuth2",
+      "PostgreSQL",
+      "Redis",
+      "Apache Kafka",
+      "AWS (Cognito, S3, OpenSearch, Bedrock, CloudWatch, WAF, Route53, Certificate Manager)",
+      "Socket.IO",
+      "Docker",
+      "Prometheus",
+      "Grafana",
+      "Slack",
+      "JasperReports",
+      "Next.js",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+    githubUrl: "",
+    liveUrl: "",
+    featured: true,
+  },
+];
+
+export const EXPERIENCES_VI: Experience[] = [
+  {
+    id: "2",
+    company: "Công ty TNHH Techzen",
+    role: "Lập trình viên Fullstack",
+    duration: "01/2026 – 06/2026",
+    startDate: "2026-01-01",
+    endDate: "2026-06-30",
+    responsibilities: [
+      "Phát triển hệ thống phân tích nhân sự nội bộ tổng hợp dữ liệu từ nhiều hệ thống công ty nhằm phục vụ đánh giá hiệu suất nhân viên và phân tích lực lượng lao động.",
+      "Xây dựng và bảo trì các API Spring Boot phục vụ xử lý dữ liệu, xuất/nhập file Excel và phân tích dữ liệu nhân viên sử dụng Apache POI.",
+      "Tối ưu hóa hiệu năng API bằng cách cải thiện truy vấn cơ sở dữ liệu, giảm thiểu nạp dữ liệu thừa và áp dụng phân trang, bộ lọc cho các tập dữ liệu nhân sự lớn.",
+      "Triển khai đồng bộ hóa dữ liệu từ nhiều nguồn nội bộ nhằm tập trung hóa và chuẩn hóa cơ sở dữ liệu nhân sự.",
+      "Phát triển các tính năng frontend với Vue.js, i18n và Chart.js bao gồm dashboard thống kê, bảng dữ liệu, bộ lọc và màn hình chi tiết nhân viên.",
+      "Làm việc với cơ sở dữ liệu quan hệ để truy vấn, xác thực, làm sạch và đồng bộ dữ liệu HR.",
+      "Tích hợp các tính năng hỗ trợ bởi AI nhằm tạo báo cáo tự động, giải thích insight dữ liệu và hỗ trợ phân tích dữ liệu nhân sự.",
+      "Phối hợp chặt chẽ với đội ngũ HR và các phòng ban nội bộ để làm rõ yêu cầu, khắc phục lỗi, cải tiến tính năng và hỗ trợ kiểm thử trong môi trường Agile/Scrum.",
+    ],
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Apache POI",
+      "Vue.js",
+      "i18n",
+      "Chart.js",
+      "AI Integration",
+      "Agile/Scrum",
+      "Relational Database",
+      "Optimized API",
+      "Playwright",
+    ],
+  },
+  {
+    id: "1",
+    company: "FPT Software TP. Hồ Chí Minh",
+    role: "Thực tập sinh Lập trình viên Java",
+    duration: "09/2025 – 11/2025",
+    startDate: "2025-09-01",
+    endDate: "2025-11-01",
+    responsibilities: [
+      "Phát triển nền tảng Quản lý Thông tin Phòng thí nghiệm (LIMS) dạng microservices sử dụng Spring Boot 3.3 và Java 21, bao gồm các service: IAM, Bệnh nhân (Patient), Chỉ định xét nghiệm (Test Order), Thiết bị (Instrument) và Kho (Warehouse).",
+      "Làm việc trong môi trường Agile/Scrum với quy trình làm việc chuẩn mực trên Git/GitLab.",
+      "Triển khai xác thực và phân quyền an toàn với AWS Cognito, JWT, OAuth2 và RBAC.",
+      "Xây dựng luồng sự kiện phân tán mở rộng cao với Apache Kafka, caching Redis và thông báo thời gian thực qua Socket.IO.",
+      "Tích hợp cổng thanh toán, phân tích AI y tế với AWS Bedrock và xuất báo cáo động bằng JasperReports.",
+      "Thiết lập hệ thống giám sát và cảnh báo toàn diện với Prometheus, Grafana, Slack alerts và AWS CloudWatch.",
+      "Phát triển giao diện người dùng hiện đại, chuẩn UI/UX với Next.js, Tailwind CSS và shadcn/ui.",
+    ],
+    technologies: [
+      "Java 21",
+      "Spring Boot",
+      "Spring Security OAuth2",
+      "PostgreSQL",
+      "Redis",
+      "Apache Kafka",
+      "AWS (Cognito, S3, OpenSearch, Bedrock, CloudWatch, WAF, Route53, Certificate Manager)",
+      "Socket.IO",
+      "Docker",
+      "Prometheus",
+      "Grafana",
+      "Slack",
+      "JasperReports",
+      "Next.js",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+  },
+];
+
+export const SERVICES_VI: Service[] = [
+  {
+    id: "1",
+    title: "Phát triển Ứng dụng Web",
+    description:
+      "Xây dựng các ứng dụng web hiệu năng cao, mở rộng tốt với React và Spring Boot.",
+    icon: "Globe",
+    features: [
+      "ReactJS / NextJS",
+      "Spring Boot",
+      "Thiết kế Responsive",
+      "Xác thực JWT",
+    ],
+  },
+  {
+    id: "2",
+    title: "Phát triển Ứng dụng Di động",
+    description:
+      "Tạo ứng dụng di động đa nền tảng với React Native mang lại trải nghiệm người dùng mượt mà.",
+    icon: "Smartphone",
+    features: [
+      "React Native",
+      "Tính năng thời gian thực",
+      "Tích hợp native modules",
+      "Thông báo đẩy (Push notifications)",
+    ],
+  },
+  {
+    id: "3",
+    title: "Kiến trúc Microservices",
+    description:
+      "Thiết kế và triển khai các dịch vụ độc lập với giao tiếp hướng sự kiện (event-driven).",
+    icon: "Server",
+    features: [
+      "Kafka / RabbitMQ",
+      "API Gateway",
+      "Docker / Containerization",
+      "Bộ nhớ đệm phân tán",
+    ],
+  },
+  {
+    id: "4",
+    title: "Tích hợp Trí tuệ Nhân tạo AI",
+    description:
+      "Tích hợp các mô hình học máy và dịch vụ AI vào hệ thống sản phẩm thực tế.",
+    icon: "Brain",
+    features: [
+      "Hệ thống Gợi ý (Recommendation)",
+      "Dự báo Doanh thu",
+      "Gemini AI / AWS Bedrock",
+      "FastAPI",
+    ],
+  },
+];
+
+export function getProjects(lng: string = "en"): Project[] {
+  return lng.startsWith("vi") ? PROJECTS_VI : PROJECTS;
+}
+
+export function getExperiences(lng: string = "en"): Experience[] {
+  return lng.startsWith("vi") ? EXPERIENCES_VI : EXPERIENCES;
+}
+
+export function getServices(lng: string = "en"): Service[] {
+  return lng.startsWith("vi") ? SERVICES_VI : SERVICES;
+}
+

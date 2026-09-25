@@ -18,13 +18,13 @@ Your role is to help visitors (recruiters, developers, collaborators) learn abou
 - GPA: 3.22/4.0 — Bachelor of Software Engineering, Ho Chi Minh City University of Industry (2021-2025)
 
 == CORE SKILLS ==
-Frontend: ReactJS (90%), NextJS (85%), React Native (80%), TailwindCSS (95%), Redux (85%), TypeScript (80%), Shadcn UI (85%)
-Backend: Java (90%), Spring Boot (92%), REST API (95%)
-DevOps: Docker (85%), AWS EC2/S3/Cognito (80%), Jenkins (85%), Nginx (90%), Vercel (80%)
-Database: PostgreSQL (88%), MongoDB (85%), SQL Server (82%), MariaDB (85%)
-Realtime: WebSocket/Socket.IO (88%), Kafka (75%), Redis (82%)
-Monitoring: Prometheus (78%), Grafana (80%)
-AI/Data: Gemini AI / AWS Bedrock (85%), Python FastAPI (82%), Prophet Model (75%), Recommendation Systems (80%)
+Frontend: ReactJS, NextJS, React Native, TailwindCSS, Redux, TypeScript, Shadcn UI
+Backend: Java, Spring Boot, REST API
+DevOps: Docker, AWS EC2/S3/Cognito, Jenkins, Nginx, Vercel
+Database: PostgreSQL, MongoDB, SQL Server, MariaDB
+Realtime: WebSocket/Socket.IO, Kafka, Redis
+Monitoring: Prometheus, Grafana
+AI/Data: Gemini AI / AWS Bedrock, Python FastAPI, Prophet Model, Recommendation Systems
 
 == PROJECTS ==
 
@@ -339,16 +339,16 @@ export function demoResponse(message: string, lng: string = "en"): string {
 
   if (msg.includes("ai") || msg.includes("gemini") || msg.includes("trí tuệ")) {
     if (isVi) {
-      return "Dương có kinh nghiệm tích hợp AI vào hơn 4 dự án thực tế: HRMPro (dùng Gemini AI để phân tích dữ liệu nhân sự), Sports Facility (trợ lý đặt sân Gemini AI), E-commerce (gợi ý sản phẩm lai kết hợp mô hình Prophet AI dự báo doanh thu), và LIMS (AWS Bedrock phân tích dữ liệu y tế). Kỹ năng AI Integration & Data của Dương đạt mức 85%.";
+      return "Dương có kinh nghiệm tích hợp AI vào hơn 4 dự án thực tế: HRMPro (dùng Gemini AI để phân tích dữ liệu nhân sự), Sports Facility (trợ lý đặt sân Gemini AI), E-commerce (gợi ý sản phẩm lai kết hợp mô hình Prophet AI dự báo doanh thu), và LIMS (AWS Bedrock phân tích dữ liệu y tế). Kỹ năng AI Integration & Data của Dương là một trong những thế mạnh nổi bật.";
     }
-    return "Duong has integrated AI features into 4+ projects: HRMPro (Gemini AI for HR analytics), Sports Facility (Gemini AI booking assistant), E-commerce (Prophet AI for revenue forecasting and recommendation system), and LIMS (AWS Bedrock AI analysis). He rates his AI Integration skills at 85%.";
+    return "Duong has integrated AI features into 4+ projects: HRMPro (Gemini AI for HR analytics), Sports Facility (Gemini AI booking assistant), E-commerce (Prophet AI for revenue forecasting and recommendation system), and LIMS (AWS Bedrock AI analysis). AI Integration and Data engineering are among his core strengths.";
   }
 
   if (msg.includes("skill") || msg.includes("tech") || msg.includes("kỹ năng") || msg.includes("công nghệ")) {
     if (isVi) {
-      return "Bộ kỹ năng của Dương: Backend gồm Java/Spring Boot (92%) và REST API (95%). Frontend gồm ReactJS (90%) và TailwindCSS (95%). Cơ sở dữ liệu sử dụng PostgreSQL, MongoDB, MariaDB. Kỹ năng AI gồm Gemini AI, AWS Bedrock, Python FastAPI và Prophet Model. DevOps hỗ trợ Docker, AWS, Jenkins và Nginx.";
+      return "Bộ kỹ năng của Dương: Backend vững chắc với Java/Spring Boot và REST API. Frontend thành thạo ReactJS và TailwindCSS. Cơ sở dữ liệu sử dụng PostgreSQL, MongoDB, MariaDB. Kỹ năng AI gồm Gemini AI, AWS Bedrock, Python FastAPI và Prophet Model. DevOps hỗ trợ Docker, AWS, Jenkins và Nginx.";
     }
-    return "Duong's skill set: Backend includes Java/Spring Boot (92%) and REST APIs (95%). Frontend includes ReactJS (90%) and TailwindCSS (95%). Database options include PostgreSQL, MongoDB, and MariaDB. AI tools include Gemini AI, AWS Bedrock, Python FastAPI, and Prophet Model. DevOps includes Docker, AWS, Jenkins, and Nginx.";
+    return "Duong's skill set: Strong backend foundation with Java/Spring Boot and REST APIs. Frontend expertise in ReactJS and TailwindCSS. Relational and NoSQL databases include PostgreSQL, MongoDB, and MariaDB. AI tools include Gemini AI, AWS Bedrock, Python FastAPI, and Prophet Model. DevOps includes Docker, AWS, Jenkins, and Nginx.";
   }
 
   if (msg.includes("experience") || msg.includes("work") || msg.includes("job") || msg.includes("kinh nghiệm") || msg.includes("làm việc")) {

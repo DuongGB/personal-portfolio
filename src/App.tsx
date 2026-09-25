@@ -14,9 +14,14 @@ const AiChat = lazy(() => import("@/components/AiChat"));
 
 function SectionLoader() {
   return (
-    <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_0.9fr] lg:px-8">
-      <div className="h-48 rounded-2xl border border-zinc-200 bg-zinc-100/80 dark:border-zinc-800 dark:bg-zinc-900" />
-      <div className="h-48 rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/70" />
+    <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="bezel-outer animate-pulse">
+        <div className="bezel-inner h-64 p-8 flex flex-col justify-center gap-4">
+          <div className="h-4 w-32 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+          <div className="h-8 w-72 rounded-xl bg-zinc-200 dark:bg-zinc-800" />
+          <div className="h-4 w-full max-w-lg rounded-full bg-zinc-200 dark:bg-zinc-800" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -25,7 +30,7 @@ export default function App() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-[100dvh] bg-[#f7f8f6] text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
+    <div className="min-h-[100dvh] bg-[#f8fafc] text-zinc-900 dark:bg-[#09090b] dark:text-zinc-50 font-sans selection:bg-teal-500 selection:text-white">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       <main>

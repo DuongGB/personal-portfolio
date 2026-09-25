@@ -8,17 +8,28 @@ const resources = {
   vi: { translation: viTranslations },
 };
 
-const savedLanguage = localStorage.getItem('language') || 'en';
+const savedLanguage = (typeof window !== 'undefined' && localStorage.getItem('language')) || 'en';
+const initialLng = savedLanguage.startsWith('vi') ? 'vi' : 'en';
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: savedLanguage,
+    lng: initialLng,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
     },
   });
 
+if (typeof document !== 'undefined') {
+  document.documentElement.lang = i18n.language || initialLng;
+  i18n.on('languageChanged', (lng) => {
+    const normalized = lng.startsWith('vi') ? 'vi' : 'en';
+    document.documentElement.lang = normalized;
+    localStorage.setItem('language', normalized);
+  });
+}
+
 export default i18n;
+

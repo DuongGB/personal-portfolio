@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Download, Menu, Moon, Sun, X } from "lucide-react";
+import { Download, Menu, Moon, Sun, X, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { CV_URL, NAV_LINKS } from "@/utils/data";
@@ -16,7 +16,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
   const sectionIds = NAV_LINKS.map((link) => link.target);
-  const activeSection = useScrollSpy(sectionIds, 80);
+  const activeSection = useScrollSpy(sectionIds, 90);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -26,101 +26,127 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed left-0 right-0 top-0 z-50 border-b transition-colors",
-        isScrolled
-          ? "border-zinc-200 bg-[#f7f8f6]/92 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/88"
-          : "border-transparent bg-[#f7f8f6]/70 backdrop-blur-sm dark:bg-zinc-950/70",
-      )}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-950 text-sm font-black text-white dark:bg-white dark:text-zinc-950">
+    <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 pt-3 sm:pt-4 pointer-events-none">
+      <nav
+        aria-label="Main Navigation"
+        className={cn(
+          "pointer-events-auto relative w-full max-w-5xl rounded-full transition-all duration-300",
+          "border border-zinc-200/80 dark:border-white/10",
+          "bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl",
+          isScrolled
+            ? "shadow-[0_12px_32px_-10px_rgba(0,0,0,0.12)] dark:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.6)] py-1.5 px-3"
+            : "shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_25px_-10px_rgba(0,0,0,0.4)] py-2 px-3.5",
+        )}
+      >
+        <div className="flex items-center justify-between">
+          {/* Logo / Monogram */}
+          <a
+            href="#home"
+            className="group flex items-center gap-2.5 rounded-full p-1 transition-transform active:scale-95"
+          >
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-teal-600 to-emerald-400 text-xs font-mono-tech font-bold text-white shadow-sm ring-1 ring-white/20">
               DN
-            </span>
-            <span className="hidden text-base font-black tracking-tight text-zinc-950 sm:block dark:text-white">
-              Duong<span className="text-teal-700 dark:text-teal-300">Nguyen</span>
-            </span>
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-sm font-bold tracking-tight text-zinc-900 dark:text-white">
+                Duong<span className="text-teal-600 dark:text-teal-400 font-extrabold">.dev</span>
+              </span>
+            </div>
           </a>
 
-          <div className="hidden items-center gap-1 md:flex">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.target}
-                href={`#${link.target}`}
-                className={cn(
-                  "rounded-xl px-3 py-2 text-sm font-bold transition hover:bg-zinc-200/70 active:translate-y-px dark:hover:bg-zinc-800",
-                  activeSection === link.target
-                    ? "bg-white text-teal-700 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:text-teal-300 dark:ring-zinc-800"
-                    : "text-zinc-600 dark:text-zinc-400",
-                )}
-              >
-                {t(`nav.${link.target}`)}
-              </a>
-            ))}
+          {/* Desktop Nav Items */}
+          <div className="hidden md:flex items-center gap-1 rounded-full bg-zinc-100/70 p-1 dark:bg-zinc-800/60 border border-zinc-200/40 dark:border-white/5">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.target;
+              return (
+                <a
+                  key={link.target}
+                  href={`#${link.target}`}
+                  className={cn(
+                    "relative rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-all duration-200",
+                    isActive
+                      ? "bg-white text-teal-700 shadow-sm dark:bg-zinc-950 dark:text-teal-300 ring-1 ring-black/5 dark:ring-white/10"
+                      : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-zinc-700/40",
+                  )}
+                >
+                  {t(`nav.${link.target}`)}
+                </a>
+              );
+            })}
           </div>
 
+          {/* Action Hub */}
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
+
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-300 bg-white text-zinc-700 transition hover:border-teal-700/40 hover:text-teal-700 active:scale-[0.98] dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-teal-300/40 dark:hover:text-teal-300"
+              aria-label={t("nav.toggleTheme")}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200/80 bg-zinc-100/80 text-zinc-700 transition hover:border-teal-500/40 hover:text-teal-600 active:scale-90 dark:border-zinc-800 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:border-teal-400/40 dark:hover:text-teal-300"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
+
+            {/* CV Button-in-Button */}
             <a
               href={CV_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-xl bg-zinc-950 px-4 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-zinc-800 active:translate-y-0 sm:flex dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+              className="group hidden sm:inline-flex items-center gap-2 rounded-full bg-zinc-900 pl-3.5 pr-1.5 py-1.5 text-xs font-bold text-white transition hover:bg-teal-700 active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-teal-300"
             >
-              <Download className="h-4 w-4" />
-              {t("hero.download")}
+              <span>{t("nav.downloadCv")}</span>
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white transition-transform group-hover:rotate-45 dark:bg-zinc-900/15 dark:text-zinc-950">
+                <ArrowUpRight className="h-3 w-3" />
+              </span>
             </a>
+
+            {/* Mobile Hamburger Button */}
             <button
-              onClick={() => setMobileOpen((value) => !value)}
-              aria-label="Toggle menu"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-300 bg-white text-zinc-700 transition active:scale-[0.98] dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 md:hidden"
+              onClick={() => setMobileOpen((prev) => !prev)}
+              aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200/80 bg-zinc-100/80 text-zinc-700 transition active:scale-90 dark:border-zinc-800 dark:bg-zinc-800/80 dark:text-zinc-300 md:hidden"
             >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Dropdown Panel */}
         {mobileOpen && (
-          <div className="border-t border-zinc-200 py-3 dark:border-zinc-800 md:hidden">
-            <div className="grid gap-1">
+          <div className="mt-3 rounded-2xl border border-zinc-200/60 bg-white/95 p-3 shadow-xl backdrop-blur-2xl dark:border-zinc-800/60 dark:bg-zinc-900/95 md:hidden">
+            <div className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.target}
                   href={`#${link.target}`}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "rounded-xl px-4 py-3 text-sm font-bold transition active:translate-y-px",
+                    "flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[0.98]",
                     activeSection === link.target
-                      ? "bg-white text-teal-700 dark:bg-zinc-900 dark:text-teal-300"
-                      : "text-zinc-600 hover:bg-zinc-200/70 dark:text-zinc-400 dark:hover:bg-zinc-800",
+                      ? "bg-teal-500/10 text-teal-700 dark:bg-teal-400/10 dark:text-teal-300 font-bold"
+                      : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800/60",
                   )}
                 >
-                  {t(`nav.${link.target}`)}
+                  <span>{t(`nav.${link.target}`)}</span>
+                  {activeSection === link.target && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-600 dark:bg-teal-400" />
+                  )}
                 </a>
               ))}
               <a
                 href={CV_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-zinc-950 px-4 py-3 text-sm font-bold text-white dark:bg-white dark:text-zinc-950"
+                className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-2.5 text-sm font-bold text-white shadow-md active:scale-95"
               >
                 <Download className="h-4 w-4" />
-                {t("hero.download")}
+                <span>{t("nav.downloadCv")}</span>
               </a>
             </div>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

@@ -157,8 +157,8 @@ MessageBubble.displayName = "MessageBubble";
 
 // ── Main AiChat Widget ─────────────────────────────────────────────────────────
 export default function AiChat() {
-  const { i18n } = useTranslation();
-  const currentLang = i18n.language || "en";
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "en").startsWith("vi") ? "vi" : "en";
 
   const [isOpen, setIsOpen] = useState(false);
   const [history, setHistory] = useState<ChatMessage[]>([]);
@@ -231,14 +231,10 @@ export default function AiChat() {
         const isQuotaExceeded = /quota|rate-limit|limit|exhausted|429/i.test(rawMsg);
 
         if (isQuotaExceeded) {
-          const friendlyMsg = currentLang === "vi"
-            ? "Lượt gọi AI miễn phí hiện đã đạt giới hạn trong phút này. Hệ thống tự động chuyển sang chế độ Demo phản hồi nhanh."
-            : "The AI service free quota has been exceeded for this minute. Temporarily switching to fast Demo response mode.";
-          
           setError(
             <span className="flex items-center gap-1.5">
               <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-amber-500" strokeWidth={2} />
-              <span>{friendlyMsg}</span>
+              <span>{t("aiChat.quotaError")}</span>
             </span>
           );
           const demoReply = demoResponse(trimmed, currentLang);
@@ -250,14 +246,10 @@ export default function AiChat() {
             },
           ]);
         } else {
-          const friendlyMsg = currentLang === "vi"
-            ? `Đã xảy ra lỗi kết nối: ${rawMsg}. Vui lòng thử lại.`
-            : `Connection error occurred: ${rawMsg}. Please try again.`;
-
           setError(
             <span className="flex items-center gap-1.5">
               <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-red-500" strokeWidth={2} />
-              <span>{friendlyMsg}</span>
+              <span>{t("aiChat.connError", { error: rawMsg })}</span>
             </span>
           );
         }
@@ -265,7 +257,7 @@ export default function AiChat() {
         setIsLoading(false);
       }
     },
-    [history, isLoading, currentLang],
+    [history, isLoading, currentLang, t],
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -295,12 +287,10 @@ export default function AiChat() {
               </div>
               <div>
                 <p className="text-[13.5px] font-bold text-zinc-900 dark:text-white">
-                  {currentLang === "vi" ? "Trợ lý AI" : "AI Assistant"}
+                  {t("aiChat.title")}
                 </p>
                 <p className="text-[10.5px] font-semibold text-teal-700 dark:text-teal-400 uppercase tracking-wider">
-                  {hasApiKey
-                    ? (currentLang === "vi" ? "Gemini Trực Tuyến" : "Gemini Online")
-                    : (currentLang === "vi" ? "Chế Độ Ngoại Tuyến" : "Offline Mode")}
+                  {hasApiKey ? t("aiChat.statusOnline") : t("aiChat.statusOffline")}
                 </p>
               </div>
             </div>
@@ -327,7 +317,7 @@ export default function AiChat() {
             <div className="border-t border-zinc-200/30 px-4 py-3 dark:border-zinc-800/30">
               <div className="flex items-center gap-1.5 mb-2 text-[11px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                 <HelpCircle className="h-3.5 w-3.5" strokeWidth={1.8} />
-                <span>{currentLang === "vi" ? "Gợi ý câu hỏi" : "Suggested questions"}</span>
+                <span>{t("aiChat.suggestedTitle")}</span>
               </div>
               <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
                 {suggestions.map((chip, idx) => (
@@ -357,7 +347,7 @@ export default function AiChat() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={currentLang === "vi" ? "Hỏi về dự án, kỹ năng của Dương..." : "Ask about Duong's projects, skills..."}
+                placeholder={t("aiChat.placeholder")}
                 rows={1}
                 disabled={isLoading}
                 className="max-h-24 flex-1 resize-none bg-transparent px-2 py-1.5 text-[13px] font-semibold text-zinc-900 placeholder:text-zinc-400 focus:outline-none disabled:opacity-50 dark:text-white dark:placeholder:text-zinc-600"
@@ -377,7 +367,7 @@ export default function AiChat() {
               </button>
             </div>
             <p className="mt-2 text-center text-[10px] font-semibold text-zinc-400 dark:text-zinc-600">
-              {currentLang === "vi" ? "Nhấn Enter để gửi · Shift+Enter để xuống dòng" : "Press Enter to send · Shift+Enter for new line"}
+              {t("aiChat.hint")}
             </p>
           </div>
         </div>
